@@ -1,0 +1,54 @@
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+  <div class="modal-content">
+    <div class="modal-header bg-success">
+      <h5 class="modal-title text-white" id="exampleModalCenterTitle">Thêm bệnh</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <!-- Default Light Table -->
+      <div class="row">
+        <!-- Nhập sản phẩm -->
+        <div class="col-lg-12">
+          <div class="card card-small mb-4">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item p-3">
+                <div class="row">
+                  <div class="col">
+                    <!-- Form add category -->
+                    <form novalidate [formGroup]="KeyDiseaseForm">
+                      <!-- name_disease -->
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label>Tên bệnh</label>
+                          <select type="text" class="form-control" id="name_dis" [formControlName]="'id_disease'"
+                            required>
+                            <option value="undefined" disabled>Vui lòng chọn bệnh</option>
+                            <option *ngFor="let dis of allDiseases$" [ngValue]="dis.id_disease">
+                              {{ dis.name_disease }}
+                            </option>
+                          </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label>Triệu chứng</label>
+                          <textarea type="text" class="form-control" id="description_dis" [formControlName]="'key'"
+                            required rows="5"></textarea>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- End Default Light Table -->
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnClose">Đóng</button>
+      <button type="button" class="btn btn-save" (click)="onSubmit()">Thêm</button>
+    </div>
+  </div>
+</div>

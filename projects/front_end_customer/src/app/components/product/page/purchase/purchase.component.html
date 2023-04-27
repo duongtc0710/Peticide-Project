@@ -1,0 +1,82 @@
+<nav aria-label="breadcrumb" class="breadcrumb mb-0">
+    <div class="container">
+        <ol class="d-flex align-items-center mb-0 p-0">
+            <li class="breadcrumb-item"><a [routerLink]="['/home']" class="text-success">Trang chủ</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Đơn mua</li>
+        </ol>
+    </div>
+</nav>
+<section class="py-4 osahan-main-body">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Đánh giá chất lượng sản phẩm</h4> 
+            </div>
+            <div class="col-lg-12">
+                <ng-container *ngFor="let pro of allProduct">
+                    <div class="row p-2 bg-white border rounded mt-2">
+                        <div class="col-md-3 mt-1">
+                            <img class="img-fluid img-responsive rounded product-image" [src]="createImgPath(pro.image_defaul)">
+                        </div>
+                        <div class="col-md-6 mt-1">
+                            <h5>{{pro.name_product}}</h5>
+                            <div class="d-flex flex-row">
+                                <ng-container *ngFor="let orderItem of allOrderItem">
+                                    <ng-container *ngIf="pro.id_product === orderItem.id_product">
+                                        <div class="ratings mr-2">
+                                            <p class="text-dark m-0" style="font-size: 15px;">x{{orderItem.quantity}}</p>
+                                        </div>
+                                    </ng-container>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                            <div class="d-flex flex-row align-items-center">
+                                <ng-container *ngFor="let orderItem of allOrderItem">
+                                    <ng-container *ngIf="pro.id_product === orderItem.id_product">
+                                        <div class="ratings mr-2">
+                                            <h4 class="mr-1">{{orderItem.total | number}} đ</h4>
+                                        </div>
+                                    </ng-container>
+                                </ng-container>
+                            </div>
+                            <div class="d-flex flex-column mt-4">
+                                <button class="btn btn-lg btn-outline-success btn-sm" type="button" (click)="onBtnRating(pro.id_product)">Đánh giá</button>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- rating -->
+<ng-template #content let-c="close" let-d="dismiss">
+
+    <style>
+        div.stars {
+            width: 270px;
+            display: inline-block;
+        }
+    </style>
+
+    <div class="modal-header bg-success">
+        <h4 class="modal-title" id="modal-basic-title">Đánh giá sản phẩm</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">    
+            <span aria-hidden="true">×</span>    
+        </button>
+    </div>
+    <div class="modal-body text-center">
+        <form [formGroup]="ratingForm">
+            <div class="stars">
+                <ngx-star-rating formControlName="rating" [id]="'rating'"></ngx-star-rating>
+                <textarea class="form-control" rows="6" placeholder="Đánh giá về sản phẩm" formControlName="content"></textarea>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="d('Cross click')">Đóng</button>
+        <button type="button" class="btn btn-outline-success" (click)="c('yes')">Đồng ý</button>
+    </div>
+</ng-template>
+

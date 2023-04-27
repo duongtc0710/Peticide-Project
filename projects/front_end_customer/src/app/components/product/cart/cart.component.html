@@ -1,0 +1,99 @@
+<nav aria-label="breadcrumb" class="breadcrumb mb-0">
+    <div class="container">
+        <ol class="d-flex align-items-center mb-0 p-0">
+            <li class="breadcrumb-item"><a [routerLink]="['/home']" class="text-success">Trang chủ</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Giỏ hàng</li>
+        </ol>
+    </div>
+</nav>
+<section class="py-4 osahan-main-body">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="accordion" id="accordionExample">
+                    <div class="card border-0 osahan-accor rounded shadow-sm overflow-hidden">
+                        <ng-container *ngIf="getCartByIdAgency.length > 0; else noCartItem">
+                            <ng-container *ngFor="let getCartByID of getCartByIdAgency">
+                                <!-- cart header -->
+                                <div class="card-header bg-white border-0 p-0" id="headingOne">
+                                    <h2 class="mb-0">
+                                        <p class="h6 m-2"><i class="fa fa-home mr-2"></i>{{getCartByID['agency_data'].fullname}}</p>
+                                    </h2>
+                                </div>
+                                <!-- body cart items -->
+                                <div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body p-0 border-top">
+                                        <div class="osahan-cart">
+                                            <ng-container *ngIf="getCartByID['pro_item'].length > 0">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Ảnh sản phẩm</th>
+                                                            <th scope="col">Tên sản phẩm</th>
+                                                            <th scope="col">Số lượng</th>
+                                                            <th scope="col">Giá</th>
+                                                            <th scope="col"></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <ng-container *ngFor="let cartitem of getCartByID['cart_item']">
+                                                            <tr *ngFor="let proitem of getCartByID['pro_item']">
+                                                                <ng-container *ngIf="proitem.id_product === cartitem.id_product">
+                                                                    <th scope="row" [routerLink]="['/product-details/', proitem.id_product]" class="pD">
+                                                                        <img [src]="createImgPath(proitem.image_defaul)" class="img-fluid pt-image-manager__image">
+                                                                    </th>
+                                                                    <th scope="row" [routerLink]="['/product-details/', proitem.id_product]" class="pD">
+                                                                        <h6 class="mb-1 nP_H">{{proitem.name_product}}</h6>
+                                                                    </th>
+                                                                    <th scope="row">
+                                                                        <div class="cart-items-number d-flex">
+                                                                            <button type='button' class='qtyminus btn btn-success btn-sm' (click)="decreaseQuantity(cartitem)" >
+                                                                                <i class="icofont-minus"></i>
+                                                                            </button>
+                                                                            <span class='qty form-control'>{{cartitem.quantity}}</span>
+                                                                            <button type='button' class='qtyplus btn btn-success btn-sm' (click)="increaseQuantity(cartitem, proitem.quantity)">
+                                                                                <i class="icofont-plus"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                    </th>
+                                                                    <th scope="row">
+                                                                        <p class="total_price font-weight-bold m-0">{{proitem.price * cartitem.quantity | number}}₫</p>
+                                                                    </th>
+                                                                    <th scope="row">
+                                                                        <button type='button' class='btn btn-success btn-sm' (click)="deleteSelectedCart(cartitem.id_cart)">
+                                                                            <i class="icofont-trash"></i>
+                                                                        </button>
+                                                                    </th>
+                                                                </ng-container>   
+                                                            </tr>
+                                                        </ng-container>
+                                                    </tbody>
+                                                </table>
+                                            </ng-container>
+                                            <div class="col-md-12">
+                                                <a class="text-decoration-none btn btn-block p-3" type="button" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true" aria-controls="collapsetwo" (click)="createOrderItem(getCartByID['cart_item'])">
+                                                    <div class="rounded shadow bg-success d-flex align-items-center p-3 text-white">
+                                                        <div class="more">
+                                                            <h6 class="m-0">Tiến hành thanh toán</h6>
+                                                        </div>
+                                                        <div class="ml-auto"><i class="icofont-simple-right"></i></div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                        <ng-template #noCartItem>
+                            <div class="text-center mb-4 py-4">
+                                <p class="display-2"><i class="icofont-shopping-cart text-success"></i></p>
+                                <h6 class="font-weight-bold text-dark">Không có sản phẩm nào trong giỏ hàng của bạn</h6>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

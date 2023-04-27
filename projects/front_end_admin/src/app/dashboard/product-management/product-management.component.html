@@ -1,0 +1,521 @@
+<div class="row">
+  <!-- Main Sidebar -->
+  <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
+    <div class="main-navbar">
+      <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
+        <a class="navbar-brand w-100 mr-0" [routerLink]="['/dashboard']" style="line-height: 25px;">
+          <div class="d-table m-auto">
+            <span class="d-none d-md-inline ml-1 h3 text-uppercase" style="font-size: 150%;">Bảng điều khiển</span>
+          </div>
+        </a>
+        <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
+          <i class="material-icons">&#xE5C4;</i>
+        </a>
+      </nav>
+    </div>
+    <form action="#" class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
+      <div class="input-group input-group-seamless ml-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+        <input class="navbar-search form-control" type="text" placeholder="Tìm kiếm..." aria-label="Search">
+      </div>
+    </form>
+
+    <ng-container *ngIf="this.getLocal['id_role'] == 2">
+      <div class="nav-wrapper">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/disease']">
+              <i class="material-icons">coronavirus</i>
+              <span title="Trang tổng quan">Quản lí bệnh</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/chat']">
+              <i class="material-icons">question_answer</i>
+              <span title="Thoát">Chat</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/ai-intents']">
+              <i class="material-icons">vpn_key</i>
+              <span title="Thoát">Từ khoá</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/login']">
+              <i class="material-icons">logout</i>
+              <span title="Thoát">Thoát</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="this.getLocal['id_role'] == 1">
+      <div class="nav-wrapper">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/dashboard']">
+              <i class="material-icons">edit</i>
+              <span title="Trang tổng quan">Trang Tổng quan</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/account-management']">
+              <i class="material-icons">manage_accounts</i>
+              <span title="Quản lí tài khoản">Quản lí tài khoản</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/agency-management']">
+              <i class="material-icons">apartment</i>
+              <span title="Quản lí tài khoản">Quản lí đại lý</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['/product-management']">
+              <i class="material-icons">view_in_ar</i>
+              <span title="Quản lí sản phẩm">Quản lí sản phẩm</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/voucher-management']">
+              <i class="material-icons">confirmation_number</i>
+              <span title="Quản lí danh mục">Quản lí mã giảm giá</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/order-management']">
+              <i class="material-icons">reorder</i>
+              <span title="Quản lí danh mục">Quản lí đơn hàng</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/disease']">
+              <i class="material-icons">coronavirus</i>
+              <span title="Trang tổng quan">Quản lí bệnh</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/ai-intents']">
+              <i class="material-icons">vpn_key</i>
+              <span title="Thoát">Từ khoá</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/login']">
+              <i class="material-icons">logout</i>
+              <span title="Thoát">Thoát</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="this.getLocal['id_role'] == 3">
+      <div class="nav-wrapper">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/dashboard']">
+                <i class="material-icons">edit</i>
+                <span title="Trang tổng quan">Trang Tổng quan</span>
+                </a>
+            </li>
+          <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['/product-management']">
+              <i class="material-icons">view_in_ar</i>
+              <span title="Quản lí sản phẩm">Quản lí sản phẩm</span>
+            </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/order-management']">
+                <i class="material-icons">reorder</i>
+                <span title="Quản lí danh mục">Quản lí đơn hàng</span>
+              </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/login']">
+              <i class="material-icons">logout</i>
+              <span title="Thoát">Thoát</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+
+  </aside>
+  <!-- End Main Sidebar -->
+  <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+    <div class="main-navbar sticky-top bg-white">
+      <app-navbar></app-navbar>
+    </div>
+    <!-- / .main-navbar -->
+
+    <div class="main-content-container container-fluid px-4">
+      <!-- Page Header -->
+      <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-4 text-left text-sm-left mb-0">
+          <span class="text-uppercase page-subtitle">Tổng quát</span>
+          <h3 class="page-title">Sản phẩm</h3>
+        </div>
+      </div>
+      <!-- End Page Header -->
+
+      <!-- Default Light Table -->
+      <div class="row">
+        <div class="col">
+          <div class="card card-small mb-4">
+            <div class="card-header border-bottom">
+              <div class="row">
+                <div class="col col-md-3"></div>
+                <div class="col-12 col-md-6 mt-auto">
+                  <input *ngIf="this.getLocal['id_role'] == 1" class="btn1 form-control" type="text" [formControl]="searchInputControl" [autocomplete]="'off'"
+                    [placeholder]="'Tìm kiếm sản phẩm'">
+                </div>
+                <div class="col col-md-2">
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn1 btn-add" data-toggle="modal" data-target="#addProductModal"
+                    title="Thêm" *ngIf="this.getLocal['id_role'] == 3">
+                    <i class="fas fa-plus-circle fa-lg mr-1"></i> Thêm
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="card-body p-0 pb-3 text-center">
+              <table class="table table-bordered mb-0">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Ảnh sản phẩm</th>
+                    <th scope="col">Tên sản phẩm</th>
+                    <th scope="col">Giá</th>
+                    <th scope="col">Thương hiệu</th>
+                    <th scope="col"></th>
+                    <th scope="col">Trạng thái sản phẩm</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    *ngFor="let pro of allProducts$ | paginate: {itemsPerPage: pagination.size, currentPage: pagination.page, totalItems: pagination.length}">
+                    <td>
+                      <div class="col">
+                        <img class="rounded m-2 mx-auto d-block" *ngIf="pro.image_defaul"
+                          [src]="_api_url + pro.image_defaul" width="50" id="imgPath">
+                        <span class="rounded m-2 mx-auto d-block" *ngIf="!pro.image_defaul">
+                          No Image
+                        </span>
+                      </div>
+                    </td>
+                    <td>{{pro.name_product}}</td>
+                    <td>{{pro.price | number}} VNĐ</td>
+                    <td>{{pro.brand}}</td>
+                    <td>
+                      <button class="btn-delete btn-update" data-toggle="modal" data-target="#updateProductModal"
+                        title="Cập nhật" (click)="onUpdate(pro)">
+                        <i class="fas fa-edit text-white"></i>
+                      </button>
+                    </td>
+                    <td>
+                      <span class="text-success" *ngIf="pro.status === 0">Đang hoạt động</span>
+                      <span class="text-danger" *ngIf="pro.status === 1">Vô hiệu hóa</span>
+                      <span class="text-danger" *ngIf="pro.status === 2">Đã bị khoá</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="row justify-content-center">
+                <pagination-controls class="my-pagination" previousLabel="Trước" nextLabel="Tiếp"
+                  (pageChange)="changePage(pagination.page = $event)"></pagination-controls>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Default Light Table -->
+
+      <!-- Modal -->
+      <div class="modal fade bd-example-modal-lg" id="addProductModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <app-add-product></app-add-product>
+      </div>
+      <div class="modal fade bd-example-modal-lg" id="updateProductModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-add" id="exampleModalCenterTitle">Cập nhật sản phẩm</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- Default Light Table -->
+              <div class="row">
+                <!-- Nhập sản phẩm -->
+                <div class="col-lg-12">
+                  <div class="card card-small mb-4">
+                    <div class="card-header border-bottom">
+                      <h6 class="m-0">Chi tiết sản phẩm</h6>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item p-3">
+                        <div class="row">
+                          <div class="col">
+                            <!-- Form  -->
+                            <form [formGroup]="selectedProductForm" novalidate>
+
+                              <div class="row">
+                                <!-- cover image -->
+                                <div class="col-md-2 form-row" style="margin-bottom: 6rem;">
+                                  <div class="form-group col-md-12">
+                                    <div class="pt-image-manager__image">
+                                      <div class="popover-wrap">
+                                        <img data-v-9ba6da96="" data-v-608b5b32="" [src]="createImgPath(urlCover)"
+                                          class="pt-image-manager__image" data-v-5bb79eae="">
+                                        <div class="pt-image-manager__content content-fill">
+                                          <div class="pt-image-manager__upload">
+                                            <div class="pt-file-upload" accept="image/*">
+                                              <div class="pt-upload">
+                                                <div class="pt-upload-wrapper shopee-upload-dragger">
+                                                  <input type="file" (change)="selectedFile(fileInput)" #fileInput />
+                                                  <!-- <input class="hidden" type="file" (change)="selectedFile(fileInput)" #fileInput> -->
+                                                  <div class="pt-image-manager__upload__content">
+                                                    <a class="pt-icon m-4" (click)="handleClick()">
+                                                      <i class="fa fa-plus-circle"></i>
+                                                    </a>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="explain-text">
+                                          <p>Ảnh bìa</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- image 1 -->
+                                <div class="col-md-2 form-row" style="margin-bottom: 6rem;">
+                                  <div class="form-group col-md-12">
+                                    <div class="pt-image-manager__image">
+                                      <div class="popover-wrap">
+                                        <img data-v-9ba6da96="" data-v-608b5b32="" [src]="createImgPath(urlImage1)"
+                                          class="pt-image-manager__image" data-v-5bb79eae="">
+                                        <div class="pt-image-manager__content content-fill">
+                                          <div class="pt-image-manager__upload">
+                                            <div class="pt-file-upload" accept="image/*">
+                                              <div class="pt-upload">
+                                                <div class="pt-upload-wrapper shopee-upload-dragger">
+                                                  <input class="opacity-0" type="file" id="fileInput1" multiple
+                                                    [accept]="'image/*'" (change)="selectedFile1(fileInput1)"
+                                                    #fileInput1>
+                                                  <div class="pt-image-manager__upload__content">
+                                                    <a class="pt-icon m-4" (click)="handleClick1()">
+                                                      <i class="fa fa-plus-circle"></i>
+                                                    </a>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="explain-text">
+                                          <p>Hình ảnh 1</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- image 2 -->
+                                <div class="col-md-2 form-row" style="margin-bottom: 6rem;">
+                                  <div class="form-group col-md-12">
+                                    <div class="pt-image-manager__image">
+                                      <div class="popover-wrap">
+                                        <img data-v-9ba6da96="" data-v-608b5b32="" [src]="createImgPath(urlImage2)"
+                                          class="pt-image-manager__image" data-v-5bb79eae="">
+                                        <div class="pt-image-manager__content content-fill">
+                                          <div class="pt-image-manager__upload">
+                                            <div class="pt-file-upload" accept="image/*">
+                                              <div class="pt-upload">
+                                                <div class="pt-upload-wrapper shopee-upload-dragger">
+                                                  <input class="opacity-0" type="file" id="fileInput2" multiple
+                                                    [accept]="'image/*'" (change)="selectedFile2(fileInput2)"
+                                                    #fileInput2>
+                                                  <div class="pt-image-manager__upload__content">
+                                                    <a class="pt-icon m-4" (click)="handleClick2()">
+                                                      <i class="fa fa-plus-circle"></i>
+                                                    </a>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="explain-text">
+                                          <p>Hỉnh ảnh 2</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <!-- Name product -->
+                              <div class="form-row">
+                                <div class="form-group col-md-12">
+                                  <label for="pro_name">Tên sản phẩm</label>
+                                  <input type="text" class="form-control" [formControlName]="'name_product'" required
+                                    id="pro_name" placeholder="Tên...">
+                                </div>
+                              </div>
+
+                              <div class="form-row">
+                                <!-- Category -->
+                                <div class="form-group col-md-6">
+                                  <label>
+                                    Danh mục
+                                  </label>
+                                  <select class="form-control" (change)="getValueCate($event)"
+                                    [formControlName]="'category'">
+                                    <option value="">Vui lòng chọn danh mục</option>
+                                    <option value="Chất Dụ Côn Trùng">Chất Dụ Côn Trùng</option>
+                                    <option value="Thuốc Điều Hòa Sinh Trưởng">Thuốc Điều Hòa Sinh Trưởng</option>
+                                    <option value="Thuốc Trừ Bệnh">Thuốc Trừ Bệnh</option>
+                                    <option value="Thuốc Trừ Chuột">Thuốc Trừ Chuột</option>
+                                    <option value="Thuốc Trừ Cỏ">Thuốc Trừ Cỏ</option>
+                                    <option value="Thuốc Trừ Ốc">Thuốc Trừ Ốc</option>
+                                    <option value="Thuốc Trừ Sâu">Thuốc Trừ Sâu</option>
+                                  </select>
+                                </div>
+                                <!-- Price -->
+                                <div class="form-group col-md-6">
+                                  <label for="pro_price">Giá</label>
+                                  <input class="form-control" [formControlName]="'price'" type="number" min="1"
+                                    id="pro_price" placeholder="VNĐ">
+                                </div>
+                                <div class="form-group col-md-6" hidden>
+                                  <label for="pro_price">ID Đại Lý</label>
+                                  <input class="form-control" [formControlName]="'id_agency'" type="number" min="1"
+                                    id="pro_price" placeholder="VNĐ">
+                                </div>
+                              </div>
+
+                              <div class="form-row">
+                                <!-- Quantity -->
+                                <div class="form-group col-md-6">
+                                  <label for="pro_quantity">Số lượng</label>
+                                  <input class="form-control" [formControlName]="'quantity'" pattern="^[1-9]+$"
+                                    type="number" name="product_quantity">
+                                </div>
+                                <!-- Brand-->
+                                <div class="form-group col-md-6">
+                                  <label for="pro_brand">Thương hiệu</label>
+                                  <input type="text" class="form-control" [formControlName]="'brand'" required
+                                    id="pro_brand" placeholder="ABC">
+                                </div>
+                              </div>
+
+                              <div class="form-row">
+                                <!-- Expirydate -->
+                                <div class="form-group col-md-6">
+                                  <label for="pro_expirydate">Ngày hết hạn</label>
+                                  <input type="date" [formControlName]="'expirydate'" name="bday" min="1000-01-01"
+                                    max="3000-12-31" class="form-control">
+                                </div>
+                              </div>
+                              <!-- Description -->
+                              <div class="form-row">
+                                <div class="form-group col-md-12">
+                                  <label for="pro_description">Mô tả</label>
+                                  <textarea class="form-control" [formControlName]="'description'" required
+                                    id="pro_description" rows="3" name="description"></textarea>
+                                </div>
+                              </div>
+                            </form>
+
+                            <div class="form-row" *ngIf="this.getLocal['id_role'] == 1">
+                              <div class="form-group col-md-6">
+                                <label for="status">Trạng thái sản phẩm</label>
+                                <div class="wrapper" [formGroup]="selectedProductForm">
+                                  <input type="radio" value="0" name="status" [formControlName]="'status'" id="true">
+                                  <input type="radio" value="1" name="status" [formControlName]="'status'" id="false">
+                                  <input type="radio" value="2" name="status" [formControlName]="'status'" id="block">
+
+                                  <label for="true" class="option true ml-0 mr-1">
+                                    <div class="dot"></div>
+                                    <span>Đang hoạt động</span>
+                                  </label>
+                                  <label for="false" class="option false ml-0 mr-1">
+                                    <div class="dot"></div>
+                                    <span>Vô hiệu hoá</span>
+                                  </label>
+                                  <label for="block" class="option block ml-0 mr-0">
+                                    <div class="dot"></div>
+                                    <span>Đã bị khoá</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                            <ng-container>
+                              <div class="form-row" *ngIf="this.getLocal['id_role'] == 3 && this.idStatus != 2">
+                                <div class="form-group col-md-6">
+                                  <label for="status">Trạng thái sản phẩm</label>
+                                  <div class="wrapper1" [formGroup]="selectedProductForm">
+                                    <input type="radio" value="0" name="status" [formControlName]="'status'" id="true">
+                                    <input type="radio" value="1" name="status" [formControlName]="'status'" id="false">
+
+                                    <label for="true" class="option true ml-0 mr-1">
+                                      <div class="dot"></div>
+                                      <span>Đang hoạt động</span>
+                                    </label>
+                                    <label for="false" class="option false ml-0 mr-1">
+                                      <div class="dot"></div>
+                                      <span>Vô hiệu hoá</span>
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                            </ng-container>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- End Default Light Table -->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="buttonClose">Đóng</button>
+              <button type="button" class="btn btn-save" (click)="updateSelectedProduct()">Cập nhật</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- modal delete -->
+      <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Xác nhận</h4>
+          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Bạn có chắc chắn xóa sản phẩm này không?</p>
+          <div class="icon-trash">
+            <i class="fas fa-trash-alt fa-3x text-danger"></i>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="d('Cross click')">Đóng</button>
+          <button type="button" class="btn btn-outline-danger" (click)="c('yes')">Đồng ý</button>
+        </div>
+      </ng-template>
+    </div>
+  </main>
+</div>

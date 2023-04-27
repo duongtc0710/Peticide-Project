@@ -1,0 +1,165 @@
+<!-- bread_cum -->
+<nav aria-label="breadcrumb" class="breadcrumb mb-0">
+    <div class="container">
+        <ol class="d-flex align-items-center mb-0 p-0">
+            <li class="breadcrumb-item"><a [routerLink]="['/home']" class="text-success">Trang chủ</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Danh sách đơn hàng</li>
+        </ol>
+    </div>
+</nav>
+<!-- body -->
+<section class="py-4 osahan-main-body">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="osahan-listing">
+                    <ng-container *ngIf="allOrders$.length > 0;else noOrders">
+                        <div class="d-flex align-items-center mb-3">
+                            <h4>Danh sách đơn hàng</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-pills justify-content-center">
+                                <li>
+                                    <a class="active" id="success-tab" data-toggle="tab" href="#success" >Thành công</a>
+                                </li>
+                                <li>
+                                    <a id="lost-tab" data-toggle="tab" href="#lost" >Thất bại</a>
+                                </li>
+                                <li>
+                                    <a id="processing-tab" data-toggle="tab" href="#processing" >Đang chờ xử lí</a>
+                                </li>
+                            </ul>      
+                            <!-- Tab panes -->
+                            <div class="tab-content clearfix">
+                                <div class="tab-pane active" id="success">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="jumbotron bg-success">
+                                                <ng-container *ngFor="let ord of allOrders$">
+                                                    <ng-container *ngIf="ord.status === 1">
+                                                        <a [routerLink]="['/orders-detail/', ord.id_order]" class="text-decoration-none text-dark">
+                                                                <div class="p-3 rounded shadow-sm bg-white m-3">
+                                                                    <div class="d-flex align-items-center mb-3">
+                                                                    <!-- Status Order Success-->
+                                                                    <p class="bg-success text-white py-1 px-2 mb-0 rounded small" *ngIf="ord.status === 1">
+                                                                        Thành công
+                                                                    </p>
+                                                                    <!-- Order Dated -->
+                                                                    <p class="text-muted ml-auto small mb-0"><i class="icofont-clock-time"></i> {{ ord.date}} </p>
+                                                                </div>
+                                                                <!-- Destination -->
+                                                                <div class="d-flex">
+                                                                    <!-- ID Order -->
+                                                                    <p class="text-muted m-0">ID hoá đơn<br>
+                                                                        <span class="text-dark font-weight-bold"> {{ord.id_order}} </span>
+                                                                    </p>
+                                                                    <!-- Address Order -->
+                                                                    <p class="text-muted m-0 ml-auto">Giao đến<br>
+                                                                        <span class="text-dark font-weight-bold">{{ord.address}}</span>
+                                                                    </p>
+                                                                    <!-- Total Payment Order -->
+                                                                    <p class="text-muted m-0 ml-auto">Tổng tiền<br>
+                                                                        <span class="text-dark font-weight-bold"> {{ ord.total_payment | number}} VNĐ</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>          
+                                                        </a>
+                                                    </ng-container>
+                                                </ng-container>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="lost">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="jumbotron bg-success">
+                                                <ng-container *ngFor="let ord of allOrders$">
+                                                    <ng-container *ngIf="ord.status === 2">
+                                                        <a [routerLink]="['/orders-detail/', ord.id_order]" class="text-decoration-none text-dark">
+                                                            <div class="p-3 rounded shadow-sm bg-white m-3">
+                                                                <div class="d-flex align-items-center mb-3">
+                                                                    <!-- Status Order Success-->
+                                                                    <p class="bg-danger text-white py-1 px-2 mb-0 rounded small" *ngIf="ord.status === 2">
+                                                                        Thất bại
+                                                                    </p>
+                                                                    <!-- Order Dated -->
+                                                                    <p class="text-muted ml-auto small mb-0"><i class="icofont-clock-time"></i> {{ ord.date}} </p>
+                                                                </div>
+                                                                <!-- Destination -->
+                                                                <div class="d-flex">
+                                                                    <!-- ID Order -->
+                                                                    <p class="text-muted m-0">ID hoá đơn<br>
+                                                                        <span class="text-dark font-weight-bold"> {{ord.id_order}} </span>
+                                                                    </p>
+                                                                    <!-- Address Order -->
+                                                                    <p class="text-muted m-0 ml-auto">Giao đến<br>
+                                                                        <span class="text-dark font-weight-bold">{{ord.address}}</span>
+                                                                    </p>
+                                                                    <!-- Total Payment Order -->
+                                                                    <p class="text-muted m-0 ml-auto">Tổng tiền<br>
+                                                                        <span class="text-dark font-weight-bold"> {{ ord.total_payment | number}} VNĐ</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </ng-container>
+                                                </ng-container>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="processing" >
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="jumbotron bg-success">
+                                                <ng-container *ngFor="let ord of allOrders$">
+                                                    <ng-container *ngIf="ord.status === 3">
+                                                        <a [routerLink]="['/orders-detail/', ord.id_order]" class="text-decoration-none text-dark">
+                                                            <div class="p-3 rounded shadow-sm bg-white m-3">
+                                                                <div class="d-flex align-items-center mb-3">
+                                                                    <!-- Status Order Success-->
+                                                                    <p class="bg-warning text-white py-1 px-2 mb-0 rounded small" *ngIf="ord.status === 3">
+                                                                        Đang chờ xử lí
+                                                                    </p>
+                                                                    <!-- Order Dated -->
+                                                                    <p class="text-muted ml-auto small mb-0"><i class="icofont-clock-time"></i> {{ ord.date}} </p>
+                                                                </div>
+                                                                <!-- Destination -->
+                                                                <div class="d-flex">
+                                                                    <!-- ID Order -->
+                                                                    <p class="text-muted m-0">ID hoá đơn<br>
+                                                                        <span class="text-dark font-weight-bold"> {{ord.id_order}} </span>
+                                                                    </p>
+                                                                    <!-- Address Order -->
+                                                                    <p class="text-muted m-0 ml-auto">Giao đến<br>
+                                                                        <span class="text-dark font-weight-bold">{{ord.address}}</span>
+                                                                    </p>
+                                                                    <!-- Total Payment Order -->
+                                                                    <p class="text-muted m-0 ml-auto">Tổng tiền<br>
+                                                                        <span class="text-dark font-weight-bold"> {{ ord.total_payment | number}} VNĐ</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </ng-container>
+                                                </ng-container>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </ng-container>
+                    <!-- Haven't Order -->
+                    <ng-template #noOrders>
+                        <h6 class="text-center text-dark">Không tìm thấy hoá đơn nào cả</h6>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>   
+</section>

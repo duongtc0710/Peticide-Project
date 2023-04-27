@@ -1,0 +1,112 @@
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: #28a745;
+}
+
+.btn1 {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #66DE93;
+    border-radius: 0.6em;
+    color: #66DE93;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    padding: 0.8em 3em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.btn-add {
+    border-color: #66DE93;
+    color: #1a1a1a;
+    background-image: -webkit-linear-gradient(45deg, #66DE93 50%, transparent 50%);
+    background-image: linear-gradient(45deg, #66DE93 50%, transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+}
+
+.btn-delete {
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.btn-update {
+    background-color: #4CA1A3;
+    cursor: pointer;
+}
+
+.btn-save {
+    background-color: #66DE93;
+}
+
+.product-img {
+    width: 50px;
+    height: 50px;
+}
+
+tr td {
+    vertical-align: middle;
+}
+
+.icon-trash {
+    text-align: center;
+}
+
+
+/* Hover */
+
+.btn-add:hover {
+    background-position: 0;
+}
+
+.btn:hover {
+    color: #fff;
+    outline: 0;
+}
+
+tr:hover {
+    background-color: #66DE93;
+    cursor: pointer;
+    color: #fff;
+}
+
+
+/* button focus */
+
+.btn-delete:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: 0;
+}
+
+.btn-update:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: 0;
+}
+
+.close:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: 0;
+}

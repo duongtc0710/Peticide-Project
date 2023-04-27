@@ -1,0 +1,53 @@
+.carousel-indicators li {
+    background-color: black;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    height: 80px;
+    width: 80px;
+    outline: black;
+    border-radius: 50%;
+    background-image: none;
+}
+
+.carousel-control-next-icon:after {
+    content: '>';
+    font-size: 50px;
+    color: #28a745;
+}
+
+.carousel-control-prev-icon:after {
+    content: '<';
+    font-size: 50px;
+    color: #28a745;
+}
+
+.pt-image-manager__image {
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    border: 1px solid rgba(0,0,0,.2);
+    background: transparent 100% no-repeat;
+    background-size: contain;
+}
+
+.pt-image-manager__image1{
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    background: transparent 100% no-repeat;
+    background-size: contain;
+}
+
+p {
+    font-family: Lato;
+}
+  
+.inline-ul,
+  .inline-ul > li {
+    display: inline;
+    padding-left: 0;
+}

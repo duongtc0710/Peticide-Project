@@ -1,0 +1,119 @@
+<section class="osahan-main-body osahan-signup-main">
+    <div class="container-fluid bg-success">
+        <div class="row d-flex align-items-center justify-content-center vh-100">
+            <div class="col-lg-4">
+                <div class="osahan-slider-item text-center">
+                    <div class="d-flex align-items-center justify-content-center vh-100 flex-column">
+                        <img class="img-fluid rounded-pill border shadow-sm" src="./assets/img/logo.svg">
+                        <h4 class="my-4 text-white">PTECH</h4>
+                        <p class="text-center text-white mb-5 h5">Nền tảng thương mại được phát triển bởi nhóm Ptech</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 pl-lg-5">
+                <div class="osahan-signup shadow bg-white rounded">
+                    <div class="p-3">
+                        <h2 class="my-0">Hãy cùng bắt đầu nào</h2>
+                        <p class="small mb-4">Tạo tài khoản để xem các lựa chọn hàng đầu của chúng tôi dành cho bạn!</p>
+                        <form #userForm="ngForm" (ngSubmit)="submit(userForm)">
+                            <!-- fullname -->
+                            <div class="form-group">
+                                <label for="exampleInputName1">Tên</label>
+                                <input placeholder="Nhập tên" class="form-control" name="fullname" [(ngModel)]="fullname" #_fullname="ngModel" required>
+                                <div *ngIf="_fullname.errors && userForm.submitted && !isValidFormSubmitted" class="alert alert-danger">
+                                  <div *ngIf="_fullname.errors.required">
+                                    Vui lòng nhập tên
+                                  </div>
+                                </div>
+                            </div>
+                            <!-- phone -->
+                            <div class="form-group">
+                                <label for="exampleInputNumber1">Số điện thoại</label>
+                                <input placeholder="Nhập số điện thoại" name="phone" [(ngModel)]="phone" #_phone="ngModel" type="text" class="form-control" [pattern]="phonePattern" required>
+                                <div *ngIf="_phone.errors && userForm.submitted && !isValidFormSubmitted" class="alert alert-danger">
+                                  <div *ngIf="_phone.errors.required">
+                                    Vui lòng nhập số điện thoại
+                                  </div>
+                                  <div *ngIf="_phone.errors.pattern">
+                                    Số điện thoại của bạn không đúng định dạng
+                                  </div>
+                                </div>
+                            </div>
+                            <!-- email -->
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email</label>
+                                <input placeholder="Nhập Email" name="email" [(ngModel)]="email" type="email" class="form-control" #offEmail="ngModel" [pattern]="emailPattern" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                                <div *ngIf="offEmail.errors && userForm.submitted && !isValidFormSubmitted" class="alert alert-danger">
+                                    <div *ngIf="offEmail.errors.required">
+                                        Vui lòng nhập email
+                                    </div>
+                                    <div *ngIf="offEmail.errors.pattern">
+                                        Email của bạn không đúng định dạng
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- address -->
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Địa chỉ</label>
+                                <input placeholder="Nhập địa chỉ" name="address" [(ngModel)]="address" #_address="ngModel" type="text" class="form-control" id="exampleInputPassword1" required>
+                                <div *ngIf="_address.errors && userForm.submitted && !isValidFormSubmitted" class="alert alert-danger">
+                                  <div *ngIf="_address.errors.required">
+                                    Vui lòng nhập địa chỉ
+                                  </div>
+                                </div>
+                            </div>
+                            <!-- username -->
+                            <div class="form-group">
+                                <label for="exampleInput">Tên tài khoản</label>
+                                <input placeholder="Nhập tên tài khoản" name="username" [(ngModel)]="username" #_username="ngModel" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                                <div *ngIf="_username.errors && userForm.submitted && !isValidFormSubmitted" class="alert alert-danger">
+                                  <div *ngIf="_username.errors.required">
+                                    Vui lòng nhập tên tài khoản
+                                  </div>
+                                </div>
+                            </div>
+                            <!-- password -->
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Mật khẩu</label>
+                                <input placeholder="Nhập mật khẩu" name="password" [(ngModel)]="password" #_password="ngModel" type="password" class="form-control" minlength="8" maxlength="50" required>
+                                <ng-container *ngIf="password.length === 0; else nho8">
+                                  <div *ngIf="_password.errors" class="alert alert-danger">
+                                      <div *ngIf="_password.errors">Vui lòng nhập mật khẩu</div>
+                                  </div>
+                                </ng-container>
+                                <ng-template #nho8>
+                                    <div *ngIf="password.length < 8" class="alert alert-danger">
+                                        Vui lòng nhập mật khẩu phải lớn hơn 8 kí tự
+                                    </div>
+                                </ng-template>
+                                <ng9-password-strength-bar
+                                    [passwordToCheck]="password"
+                                    [barLabel]="barLabel"
+                                    [customThresholds]="thresholds"
+                                    [barColors]="myColors">
+                                </ng9-password-strength-bar>
+                            </div>
+                            <!-- repassword -->
+                            <div class="form-group">
+                                <label for="exampleInputPassword2">Xác nhận mật khẩu</label>
+                                <input placeholder="Xác nhận mật khẩu" name="repassword" [(ngModel)]="repassword" #_repassword="ngModel"type="password" class="form-control" id="exampleInputPassword2" required>
+                                <div *ngIf="_repassword.errors && userForm.submitted && !isValidFormSubmitted" class="alert alert-danger">
+                                  <div *ngIf="_repassword.errors.required">
+                                    Vui lòng xác nhận mật khẩu
+                                  </div>
+                                </div>
+                            </div>
+                            <!-- button submit -->
+                            <button type="submit" class="btn btn-success rounded btn-lg btn-block">Tạo tài khoản</button>
+                        </form>
+                        <p class="text-center mt-3 mb-0">
+                            <a [routerLink]="['/sign-in']" class="text-dark">Bạn đã có tài khoản!
+                              <em class="font-weight-bold">Đăng nhập</em>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

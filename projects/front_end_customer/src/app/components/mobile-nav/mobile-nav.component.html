@@ -1,0 +1,106 @@
+<!-- Dark mode -->
+<div class="theme-switch-wrapper">
+    <div class="scroll-to-top" [ngClass]="{'show-scrollTop': windowScrolled}">
+        <button type="button" class="btn active" data-toggle="button" aria-pressed="true" (click)="scrollToTop()">
+            <i class="icofont-hand-up icofont-4x text-success"></i>
+        </button>
+    </div>
+    <div>
+        <div class="chat-angency rounded-circle mr-4">
+            <input type="checkbox" id="check">
+            <label class="chat-btn" for="check"> 
+                <i class="fa fa-commenting-o comment" (click)="openchat($event)"></i> 
+                <i class="fa fa-close close" (click)="closeForm()"></i> 
+            </label>
+            <div class="chat-popup" id="myForm">
+                <div class="box box-success direct-chat direct-chat-success">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Ptech Chat</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse" (click)="closeForm()">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                            <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle">
+                            <i class="fa fa-comments"></i>
+                        </button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove" (click)="closeForm()">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <!-- Conversations are loaded here -->
+                        <div class="direct-chat-messages" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+                            <!-- Message to the right -->
+                            <ng-container *ngFor="let mes of messageDetail">
+                                <div class="direct-chat-msg right" *ngIf="mes.id_acc === idCus">
+                                    <div class="direct-chat-info clearfix">
+                                        <span class="direct-chat-timestamp pull-left">{{mes.timestamp | date: 'medium'}}</span>
+                                    </div>
+                                    <!-- /.direct-chat-info -->
+                                    <img class="direct-chat-img" src="https://bootdey.com/img/Content/user_2.jpg" alt="Message User Image">
+                                    <!-- /.direct-chat-img -->
+                                    <div class="direct-chat-text" *ngIf="mes.image === null; else noImage">
+                                        {{mes.message}}
+                                    </div>
+                                    <ng-template #noImage>
+                                        <div class="direct-chat-image" *ngIf="mes.image !== null">
+                                            <img [src]="createImgPath(mes.image)" class="imageAvatar mx-auto d-block" width="250px">
+                                        </div>     
+                                    </ng-template>
+
+                                    <!-- /.direct-chat-text -->
+                                </div>
+
+                                <!-- /.direct-chat-msg -->
+                                <!-- Message. Default to the left -->
+                                <div class="direct-chat-msg" *ngIf="mes.id_acc != idCus">
+                                    <div class="direct-chat-info clearfix">
+                                        <span class="direct-chat-name pull-left">PTech</span>
+                                        <span class="direct-chat-timestamp pull-right">{{mes.timestamp | date: 'medium'}}</span>
+                                    </div>
+                                    <!-- /.direct-chat-info -->
+                                    <img class="direct-chat-img" src="https://bootdey.com/img/Content/user_1.jpg" alt="Message User Image">
+                                    <!-- /.direct-chat-img -->
+                                    <div class="direct-chat-text" *ngIf="mes.image === null; else noImage">
+                                        {{mes.message}}
+                                    </div>
+                                    <ng-template #noImage>
+                                        <div class="direct-chat-image" *ngIf="mes.image !== null">
+                                            <img [src]="createImgPath(mes.image)" class="imageAvatar mx-auto d-block" width="250px">
+                                        </div>     
+                                    </ng-template>
+                                    <!-- /.direct-chat-text -->
+                                </div>
+                            </ng-container>
+                            <!-- /.direct-chat-msg -->
+                        </div>
+                        <!--/.direct-chat-messages-->
+                    </div>
+                    <div class="box-footer">
+                        <form [formGroup]="chatForm" (keydown)="keyDownFunction($event)">
+                            <ng-container *ngIf="imageUrl !== ''">
+                                <img [src]="imageUrl" class="imageview" width="80" height="80">
+                                <a (click)="resetImage()" class="btn btn-sm btn-remove btn-success">     
+                                    <i class="fa fa-times fa-2xs text-white"></i>
+                                </a>
+                            </ng-container>
+                            <div class="publisher bt-1 border-light">
+                                <input class="publisher-input" type="text" placeholder="Nhập tin nhắn" [formControlName]="'message'">
+                                <a class="publisher-btn file-group mr-2" (click)="handleClick()">
+                                    <i class="fa fa-paperclip file-browser"></i>
+                                </a>
+                                <input class="hidden" id="fileInput" type='file' accept="image/*" (change)="selectedFile(activeFrameinputFile)" #activeFrameinputFile>
+                                <a class="publisher-btn text-info" data-abc="true" (click)="userChat()">
+                                    <i class="fa fa-paper-plane"></i>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.box-footer-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

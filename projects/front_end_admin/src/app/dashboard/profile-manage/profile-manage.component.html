@@ -1,0 +1,427 @@
+<div class="row">
+  <!-- Main Sidebar -->
+  <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
+    <div class="main-navbar">
+      <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
+        <a class="navbar-brand w-100 mr-0" [routerLink]="['/dashboard']" style="line-height: 25px;">
+          <div class="d-table m-auto">
+            <span class="d-none d-md-inline ml-1 h3 text-uppercase" style="font-size: 150%;">Bảng điều khiển</span>
+          </div>
+        </a>
+        <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
+          <i class="material-icons">&#xE5C4;</i>
+        </a>
+      </nav>
+    </div>
+    <form action="#" class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
+      <div class="input-group input-group-seamless ml-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+        <input class="navbar-search form-control" type="text" placeholder="Tìm kiếm..." aria-label="Search">
+      </div>
+    </form>
+
+    <ng-container *ngIf="this.getUserDataS['id_role'] == 2">
+      <div class="nav-wrapper">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/disease']">
+              <i class="material-icons">coronavirus</i>
+              <span title="Trang tổng quan">Quản lí bệnh</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/chat']">
+              <i class="material-icons">question_answer</i>
+              <span title="Thoát">Chat</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/login']">
+              <i class="material-icons">logout</i>
+              <span title="Thoát">Thoát</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="this.getUserDataS['id_role'] == 1">
+      <div class="nav-wrapper">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/dashboard']">
+              <i class="material-icons">edit</i>
+              <span title="Trang tổng quan">Trang Tổng quan</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/account-management']">
+              <i class="material-icons">manage_accounts</i>
+              <span title="Quản lí tài khoản">Quản lí tài khoản</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/agency-management']">
+              <i class="material-icons">apartment</i>
+              <span title="Quản lí tài khoản">Quản lí đại lý</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/product-management']">
+              <i class="material-icons">view_in_ar</i>
+              <span title="Quản lí sản phẩm">Quản lí sản phẩm</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/voucher-management']">
+              <i class="material-icons">confirmation_number</i>
+              <span title="Quản lí danh mục">Quản lí mã giảm giá</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/order-management']">
+              <i class="material-icons">reorder</i>
+              <span title="Quản lí danh mục">Quản lí đơn hàng</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/disease']">
+              <i class="material-icons">coronavirus</i>
+              <span title="Trang tổng quan">Quản lí bệnh</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/login']">
+              <i class="material-icons">logout</i>
+              <span title="Thoát">Thoát</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="this.getUserDataS['id_role'] == 3">
+      <div class="nav-wrapper">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/dashboard']">
+              <i class="material-icons">edit</i>
+              <span title="Trang tổng quan">Trang Tổng quan</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/product-management']">
+              <i class="material-icons">view_in_ar</i>
+              <span title="Quản lí sản phẩm">Quản lí sản phẩm</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/order-management']">
+              <i class="material-icons">reorder</i>
+              <span title="Quản lí danh mục">Quản lí đơn hàng</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/login']">
+              <i class="material-icons">logout</i>
+              <span title="Thoát">Thoát</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+
+  </aside>
+  <!-- End Main Sidebar -->
+  <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+    <div class="main-navbar sticky-top bg-white">
+      <app-navbar></app-navbar>
+    </div>
+    <!-- / .main-navbar -->
+
+    <div class="main-content-container container-fluid px-4">
+      <div class="row gutters-sm mx">
+        <!-- <div class="col-md-7 mt-4" style="margin: auto; padding: 10px;">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex flex-column align-items-center text-center">
+                <img [src]="_api_url + this.getUserDataS['image']" alt="Image User" class="rounded-circle" width="150">
+                <div class="mt-3">
+                  <h4>{{ this.getSubData["fullname"] }}</h4>
+                  <ng-container *ngIf="this.getUserDataS['id_role'] == 1">
+                    <p class="text-secondary mb-1">Quản Trị Viên</p>
+                  </ng-container>
+                  <ng-container *ngIf="this.getUserDataS['id_role'] == 2">
+                    <p class="text-secondary mb-1">Kỹ Sư</p>
+                  </ng-container>
+                  <ng-container *ngIf="this.getUserDataS['id_role'] == 3">
+                    <p class="text-secondary mb-1">Đại Lý</p>
+                  </ng-container>
+                  <p class="text-muted font-size-sm">{{ this.getUserDataS["address"] }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <div class="col-md-7 mt-4" style="margin: auto; padding: 10px;">
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Họ & Tên</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{ this.getSubData["fullname"] }}
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Email</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{ this.getUserDataS["email"] }}
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Điện Thoại</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{ this.getUserDataS["phone"] }}
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Giới Tính</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <ng-container *ngIf="this.getSubData['gender'] == 1">Nam</ng-container>
+                  <ng-container *ngIf="this.getSubData['gender'] == 2">Nữ</ng-container>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Địa Chỉ</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{ this.getUserDataS["address"] }}
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Ngày Sinh</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{this.getSubData["birthday"]}}
+                </div>
+              </div>
+              <hr>
+              <div class="row mx-5">
+                <div class="col col-md-6">
+                  <a class="btn btn-success text-white" data-toggle="modal" data-target="#updateProfileModal"
+                    (click)="onUpdate(getUserDataS, getSubData)">Cập nhật
+                  </a>
+                </div>
+                <div class="col col-md-6">
+                  <a class="btn btn-success text-white" data-toggle="modal" data-target="#updatePasswordModal">Đổi mật khẩu</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Update Profile  -->
+    <div class="modal fade bd-example-modal-sm" id="updateProfileModal" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-add" id="exampleModalCenterTitle">Cập nhật thông tin</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-body">
+                  <div class="row mb-3">
+                    <div class="col-sm-3" style="margin: auto; padding: 10px;">
+                        <img class="imagePreview mb" [src]="createImgPath(urlAvatar)"/>
+                        <label class="btn btn-success">
+                            Tải ảnh
+                          <input type="file" class="uploadFile img" (change)="uploadFile(imageInput)" #imageInput accept="image/*" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
+                        </label>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Họ & Tên</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary" [formGroup]="sub_accountForm">
+                      <input type="text" class="form-control" formControlName="fullname">
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary" [formGroup]="proFileForm">
+                      <input type="text" class="form-control" formControlName="email" readonly>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Điện thoại</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary" [formGroup]="proFileForm">
+                      <input type="text" class="form-control" formControlName="phone" pattern="^0\d{9}$">
+                      <span class="text-danger"
+                        *ngIf="(proFileFormControl.phone.touched) && proFileFormControl.phone.errors?.required">
+                        Vui lòng nhập số điện thoại
+                      </span>
+                      <span class="text-danger"
+                        *ngIf="(proFileFormControl.phone.touched) && proFileFormControl.phone.errors?.pattern">
+                        số điện thoại chưa hợp lệ
+                      </span>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Giới tính</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <form novalidate [formGroup]="sub_accountForm">
+                        <select class="form-control" [formControlName]="'gender'">
+                          <option [value]="1">Nam</option>
+                          <option [value]="2">Nữ</option>
+                        </select>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Địa chỉ</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary" [formGroup]="proFileForm">
+                      <input type="text" class="form-control" formControlName="address" required
+                        pattern="^[^\\@#%.,&'*^?!\s].+$">
+                      <span class="text-danger"
+                        *ngIf="(proFileFormControl.address.touched) && proFileFormControl.address.errors?.required">
+                        Vui lòng nhập địa chỉ
+                      </span>
+                      <span class="text-danger"
+                        *ngIf="(proFileFormControl.address.touched) && proFileFormControl.address.errors?.pattern">
+                        Địa chỉ chưa đúng định dạng
+                      </span>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Ngày sinh</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary" [formGroup]="sub_accountForm">
+                      <input type="date" min="1950-01-01" max="2022-12-31" class="form-control"
+                        formControlName="birthday">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Default Light Table -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeButton">Đóng</button>
+            <button type="button" class="btn btn-save" (click)="onSubmit()">Cập nhật</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal Update Profile  -->
+
+
+    <!-- Change Password Modal  -->
+    <div class="modal fade bd-example-modal-sm" id="updatePasswordModal" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-add" id="exampleModalCenterTitle">Đổi mật khẩu</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Nhập sản phẩm -->
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-body">
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Mật khẩu hiện tại</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary" [formGroup]="changePasswordForm">
+                      <input type="password" class="form-control" formControlName="old_password"
+                        autocomplete="chrome-off" required>
+                      <span class="text-danger"
+                        *ngIf="(changePasswordFormControl.old_password.touched) && changePasswordFormControl.old_password.errors?.required">
+                        Mật khẩu không được trống
+                      </span>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Mật khẩu mới</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary" [formGroup]="changePasswordForm">
+                      <input type="password" class="form-control" formControlName="new_password" autocomplete="off"
+                        required pattern="^.{8,}$">
+                      <span class="text-danger"
+                        *ngIf="(changePasswordFormControl.new_password.touched) && changePasswordFormControl.new_password.errors?.required">
+                        Mật khẩu không được trống
+                      </span>
+                      <span class="text-danger"
+                        *ngIf="(changePasswordFormControl.new_password.touched) && changePasswordFormControl.new_password.errors?.pattern">
+                        Mật khẩu phải nhiều hơn 8 kí tự
+                      </span>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Xác minh mật khẩu</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary" [formGroup]="changePasswordForm">
+                      <input type="password" class="form-control" formControlName="confirm_password" autocomplete="off"
+                        required>
+                      <span class="text-danger"
+                        *ngIf="(changePasswordFormControl.confirm_password.touched) && changePasswordFormControl.confirm_password.errors?.required">
+                        Mật khẩu không được trống
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Default Light Table -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeChange">Đóng</button>
+            <button type="button" class="btn btn-save" (click)="onChange()">Cập nhật</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal Update Profile  -->
+  </main>
+</div>

@@ -1,0 +1,186 @@
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title text-add" id="exampleModalCenterTitle">Thêm tài khoản</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <!-- Default Light Table -->
+      <div class="row">
+        <div class="col-lg-4">
+          <label class="hoverable" for="fileInput">
+            <img [src]="imageUrl">
+            <div class="hover-text">Chọn ảnh</div>
+            <div class="background"></div>
+          </label>
+          <br />
+          <input id="fileInput" type='file' (change)="selectedFile(imageInput)" #imageInput>
+        </div>
+        <!-- Nhập đại lí -->
+        <div class="col-lg-8">
+          <div class="card card-small mb-4">
+            <div class="card-header border-bottom">
+              <h6 class="m-0">Chi tiết tài khoản</h6>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item p-3">
+                <div class="row">
+                  <div class="col">
+                    <!-- Form create account -->
+                    <form [formGroup]="accountForm" novalidate>
+
+                      <div class="form-row">
+                        <!-- username -->
+                        <div class="form-group col-md-12">
+                          <label for="username">Tên tài khoản</label>
+                          <input type="text" class="form-control" [formControlName]="'username'" id="username"
+                            placeholder="Tên tài khoản" required pattern="^[A-Za-z][A-Za-z0-9]*$">
+                          <span class="text-danger"
+                            *ngIf="(accountFormControl.username.touched) && accountFormControl.username.errors?.required">
+                            Vui lòng nhập tên tài khoản
+                          </span>
+                          <span class="text-danger"
+                            *ngIf="(accountFormControl.username.touched) && accountFormControl.username.errors?.pattern">
+                            Tên tài khoản chưa hợp lệ
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="form-row">
+                        <!-- fullname -->
+                        <div class="form-group col-md-12">
+                          <label for="fullname">Họ và tên</label>
+                          <form [formGroup]="sub_accountForm" novalidate>
+                            <input type="text" class="form-control" [formControlName]="'fullname'" id="fullname"
+                              placeholder="Họ và tên" required>
+                            <span class="text-danger"
+                              *ngIf="(sub_accountFormControl.fullname.touched) && sub_accountFormControl.fullname.errors?.required">
+                              Vui lòng nhập họ và tên
+                            </span>
+                          </form>
+                        </div>
+                      </div>
+
+                      <div class="form-row">
+                        <!-- password -->
+                        <div class="form-group col-md-12">
+                          <label for="password">Mật khẩu</label>
+                          <input type="password" [formControlName]="'password'" class="form-control" id="password"
+                            required pattern="^.{8,}$">
+                          <span class="text-danger"
+                            *ngIf="(accountFormControl.password.touched) && accountFormControl.password.errors?.required">
+                            Vui lòng nhập mật khẩu
+                          </span>
+                          <span class="text-danger"
+                            *ngIf="(accountFormControl.password.touched) && accountFormControl.password.errors?.pattern">
+                            Mật khẩu phải nhiều hơn 8 kí tự
+                          </span>
+                        </div>
+                      </div>
+
+
+                      <div class="form-row">
+                        <!-- Email -->
+                        <div class="form-group col-md-6">
+                          <label for="email">Email</label>
+                          <input type="email" class="form-control" [formControlName]="'email'" id="email"
+                            placeholder="example@gmail.com" required
+                            pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$">
+                          <span class="text-danger"
+                            *ngIf="(accountFormControl.email.touched) && accountFormControl.email.errors?.required">
+                            Vui lòng nhập email
+                          </span>
+                          <span class="text-danger"
+                            *ngIf="(accountFormControl.email.touched) && accountFormControl.email.errors?.pattern">
+                            Email chưa đúng định dạng
+                          </span>
+                        </div>
+                        <!-- birthday -->
+                        <div class="form-group col-md-6">
+                          <label for="pro_expirydate">Ngày sinh</label>
+                          <form [formGroup]="sub_accountForm" novalidate>
+                            <input type="date" min="1000-01-01" max="3000-12-31" class="form-control"
+                              [formControlName]="'birthday'" required>
+                            <span class="text-danger"
+                              *ngIf="(sub_accountFormControl.birthday.touched) && sub_accountFormControl.birthday.errors?.required">
+                              Vui lòng nhập ngày sinh
+                            </span>
+                          </form>
+                        </div>
+                      </div>
+
+                      <div class="form-row">
+                        <!-- gender -->
+                        <div class="form-group col-md-6">
+                          <label for="roles">
+                            Giới tính
+                          </label>
+                          <form [formGroup]="sub_accountForm" novalidate>
+                            <select class="form-control" [formControlName]="'gender'">
+                              <option selected>Chọn giới tính của bạn</option>
+                              <option [value]="1">Nam</option>
+                              <option [value]="2">Nữ</option>
+                            </select>
+                            <span class="text-danger"
+                              *ngIf="(sub_accountFormControl.gender.touched) && sub_accountFormControl.gender.errors?.required">
+                              Vui lòng chọn giới tính
+                            </span>
+                          </form>
+                        </div>
+                        <!-- phone -->
+                        <div class="form-group col-md-6">
+                          <label for="phone">Số điện thoại</label>
+                          <input type="text" class="form-control" [formControlName]="'phone'" id="phone" required
+                            pattern="^0\d{9}$">
+                          <span class="text-danger"
+                            *ngIf="(accountFormControl.phone.touched) && accountFormControl.phone.errors?.required">
+                            Vui lòng nhập số điện thoại
+                          </span>
+                          <span class="text-danger"
+                            *ngIf="(accountFormControl.phone.touched) && accountFormControl.phone.errors?.pattern">
+                            SĐT chưa hợp lệ
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="form-row">
+                        <!-- address -->
+                        <div class="form-group col-md-6">
+                          <label for="address">Địa chỉ</label>
+                          <input type="text" class="form-control" [formControlName]="'address'" id="address" required>
+                          <span class="text-danger"
+                            *ngIf="(accountFormControl.address.touched) && accountFormControl.address.errors?.required">
+                            Vui lòng nhập địa chỉ
+                          </span>
+                        </div>
+                        <!-- role -->
+                        <div class="form-group col-md-6">
+                          <label>Vai trò</label>
+                          <select class="form-control" [formControlName]="'id_role'">
+                            <option *ngFor="let roleItem of roles" [value]="roleItem.value">{{roleItem.name_role}}
+                            </option>
+                          </select>
+                          <span class="text-danger"
+                            *ngIf="(accountFormControl.id_role.touched) && accountFormControl.id_role.errors?.required">
+                            Vui lòng chọn vai trò
+                          </span>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- End Default Light Table -->
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal" id="onClose">Đóng</button>
+      <button type="button" class="btn btn-save" (click)="onSubmit()">Thêm</button>
+    </div>
+  </div>
+</div>

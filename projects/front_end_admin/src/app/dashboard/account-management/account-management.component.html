@@ -1,0 +1,480 @@
+<div class="row">
+    <!-- Main Sidebar -->
+    <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
+        <div class="main-navbar">
+            <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
+                <a class="navbar-brand w-100 mr-0" [routerLink]="['/dashboard']" style="line-height: 25px;">
+                    <div class="d-table m-auto">
+                        <span class="d-none d-md-inline ml-1 h3 text-uppercase" style="font-size: 150%;">Bảng điều khiển</span>
+                    </div>
+                </a>
+                <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
+                    <i class="material-icons">&#xE5C4;</i>
+                </a>
+            </nav>
+        </div>
+        <form action="#" class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
+            <div class="input-group input-group-seamless ml-3">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                <input class="navbar-search form-control" type="text" placeholder="Tìm kiếm..." aria-label="Search">
+            </div>
+        </form>
+
+        <ng-container *ngIf="this.getUserDataS['id_role'] == 2">
+            <div class="nav-wrapper">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/disease']">
+                            <i class="material-icons">coronavirus</i>
+                            <span title="Trang tổng quan">Quản lí bệnh</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/chat']">
+                            <i class="material-icons">question_answer</i>
+                            <span title="Thoát">Chat</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/ai-intents']">
+                            <i class="material-icons">vpn_key</i>
+                            <span title="Thoát">Từ khoá</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/login']">
+                            <i class="material-icons">logout</i>
+                            <span title="Thoát">Thoát</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="this.getUserDataS['id_role'] == 1">
+            <div class="nav-wrapper">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/dashboard']">
+                            <i class="material-icons">edit</i>
+                            <span title="Trang tổng quan">Trang Tổng quan</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" [routerLink]="['/account-management']">
+                            <i class="material-icons">manage_accounts</i>
+                            <span title="Quản lí tài khoản">Quản lí tài khoản</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/agency-management']">
+                            <i class="material-icons">apartment</i>
+                            <span title="Quản lí tài khoản">Quản lí đại lý</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/product-management']">
+                            <i class="material-icons">view_in_ar</i>
+                            <span title="Quản lí sản phẩm">Quản lí sản phẩm</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/voucher-management']">
+                            <i class="material-icons">confirmation_number</i>
+                            <span title="Quản lí danh mục">Quản lí mã giảm giá</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/order-management']">
+                            <i class="material-icons">reorder</i>
+                            <span title="Quản lí danh mục">Quản lí đơn hàng</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/disease']">
+                            <i class="material-icons">coronavirus</i>
+                            <span title="Trang tổng quan">Quản lí bệnh</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/ai-intents']">
+                            <i class="material-icons">vpn_key</i>
+                            <span title="Thoát">Từ khoá</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/login']">
+                            <i class="material-icons">logout</i>
+                            <span title="Thoát">Thoát</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="this.getUserDataS['id_role'] == 3">
+            <div class="nav-wrapper">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/product-management']">
+                            <i class="material-icons">view_in_ar</i>
+                            <span title="Quản lí sản phẩm">Quản lí sản phẩm</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/order-management']">
+                            <i class="material-icons">reorder</i>
+                            <span title="Quản lí danh mục">Quản lí đơn hàng</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/login']">
+                            <i class="material-icons">logout</i>
+                            <span title="Thoát">Thoát</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </ng-container>
+
+    </aside>
+    <!-- End Main Sidebar -->
+    <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+        <div class="main-navbar sticky-top bg-white">
+            <app-navbar></app-navbar>
+        </div>
+        <!-- / .main-navbar -->
+
+        <div class="main-content-container container-fluid px-4">
+            <!-- Page Header -->
+            <div class="page-header row no-gutters py-4">
+                <div class="col-12 col-sm-4 text-left text-sm-left mb-0">
+                    <span class="text-uppercase page-subtitle">Tổng quát</span>
+                    <h3 class="page-title">Tài khoản</h3>
+                </div>
+            </div>
+            <!-- End Page Header -->
+
+            <!-- Default Light Table -->
+            <div class="row">
+                <div class="col">
+                    <div class="card card-small mb-4">
+                        <div class="card-header border-bottom">
+                            <div class="row">
+                                <div class="col col-md-3"></div>
+                                <div class="col-12 col-md-6 mt-auto">
+                                    <input class="btn1 form-control" type="text" [formControl]="searchInputControl" [autocomplete]="'off'" [placeholder]="'Tìm kiếm tên tài khoản'">
+                                </div>
+                                <div class="col col-md-2">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn1 btn-add ml-5" data-toggle="modal" data-target="#insertAccountModal" title="Thêm">
+                    <i class="fas fa-plus-circle fa-lg mr-1"></i> Thêm
+                  </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body p-0 pb-3 text-center">
+                            <table class="table table-bordered mb-0">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Tên tài khoản</th>
+                                        <th scope="col">Họ và tên</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Số điện thoại</th>
+                                        <th scope="col">Giới tính</th>
+                                        <th scope="col">Trạng thái</th>
+                                        <th scope="col">Vai trò</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let acc of allAccount$">
+                                        <!-- image of account -->
+                                        <td>
+                                            <div class="col">
+                                                <img class="rounded m-2 mx-auto d-block" *ngIf="acc.image" [src]="createImgPath(acc.image)" width="50" />
+                                                <span class="rounded m-2 mx-auto d-block" *ngIf="!acc.image">
+                          No Image
+                        </span>
+                                            </div>
+                                        </td>
+                                        <!-- username -->
+                                        <td>
+                                            {{acc.username}}
+                                        </td>
+                                        <!-- fullname -->
+                                        <td>
+                                            <ng-container *ngIf="acc.id_role === 0">
+                                                <ng-container *ngFor="let cus of allCustomer$">
+                                                    <ng-container *ngIf="cus.id_acc === acc.id_acc">
+                                                        {{cus.fullname}}
+                                                    </ng-container>
+                                                </ng-container>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="acc.id_role === 1">
+                                                <ng-container *ngFor="let sub of allSubAccount$">
+                                                    <ng-container *ngIf="sub.id_acc === acc.id_acc">
+                                                        {{sub.fullname}}
+                                                    </ng-container>
+                                                </ng-container>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="acc.id_role === 2">
+                                                <ng-container *ngFor="let eng of allEngineerAccount$">
+                                                    <ng-container *ngIf="eng.id_acc === acc.id_acc">
+                                                        {{eng.fullname}}
+                                                    </ng-container>
+                                                </ng-container>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="acc.id_role === 3">
+                                                <ng-container *ngFor="let agen of allAgencyAccount$">
+                                                    <ng-container *ngIf="agen.id_acc === acc.id_acc">
+                                                        {{agen.fullname}}
+                                                    </ng-container>
+                                                </ng-container>
+                                            </ng-container>
+                                        </td>
+                                        <!-- email -->
+                                        <td>{{acc.email}}</td>
+                                        <!-- phone -->
+                                        <td>{{acc.phone}}</td>
+                                        <!-- role -->
+                                        <td>
+                                            <ng-container *ngIf="acc.id_role === 0">
+                                              <ng-container *ngFor="let cus of allCustomer$">
+                                                <ng-container *ngIf="cus.id_acc === acc.id_acc">
+                                                  <span *ngIf="cus.gender === 1">Nam</span>
+                                                  <span *ngIf="cus.gender === 2">Nữ</span>
+                                                </ng-container>
+                                              </ng-container>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="acc.id_role === 1">
+                                                <ng-container *ngFor="let sub of allSubAccount$">
+                                                    <ng-container *ngIf="sub.id_acc === acc.id_acc">
+                                                        <span *ngIf="sub.gender === 1">Nam</span>
+                                                        <span *ngIf="sub.gender === 2">Nữ</span>
+                                                    </ng-container>
+                                                </ng-container>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="acc.id_role === 2">
+                                                <ng-container *ngFor="let eng of allEngineerAccount$">
+                                                    <ng-container *ngIf="eng.id_acc === acc.id_acc">
+                                                        <span *ngIf="eng.gender === 1">Nam</span>
+                                                        <span *ngIf="eng.gender === 2">Nữ</span>
+                                                    </ng-container>
+                                                </ng-container>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="acc.id_role === 3">
+                                                <span>N/A</span>
+                                            </ng-container>
+                                        </td>
+                                        <td>
+                                            <span class="text-success" *ngIf="acc.is_active === true">Đang hoạt động</span>
+                                            <span class="text-danger" *ngIf="acc.is_active === false">Vô hiệu hóa</span>
+                                        </td>
+                                        <td>
+                                            <span *ngIf="acc.id_role === 0">Khách hàng</span>
+                                            <span *ngIf="acc.id_role === 1">Admin</span>
+                                            <span *ngIf="acc.id_role === 2">Kỹ sư</span>
+                                            <span *ngIf="acc.id_role === 3">Đại lý</span>
+                                        </td>
+                                        <td>
+                                            <ng-container *ngIf="acc.id_role === 0">
+                                                <ng-container *ngFor="let sub of allAccount$">
+                                                    <ng-container *ngIf="sub.id_acc === acc.id_acc">
+                                                        <button class="btn-delete btn-update" data-toggle="modal" data-target="#updateAccountModal" title="Cập nhật" (click)="onUpdate(acc,sub)">
+                                                          <i class="fas fa-edit text-white"></i>
+                                                        </button>
+                                                    </ng-container>
+                                                </ng-container>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="acc.id_role === 1">
+                                                <ng-container *ngFor="let sub of allSubAccount$">
+                                                    <ng-container *ngIf="sub.id_acc === acc.id_acc">
+                                                        <button class="btn-delete btn-update" data-toggle="modal" data-target="#updateAccountModal" title="Cập nhật" (click)="onUpdate(acc,sub)">
+                                                          <i class="fas fa-edit text-white"></i>
+                                                        </button>
+                                                    </ng-container>
+                                                </ng-container>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="acc.id_role === 2">
+                                                <ng-container *ngFor="let eng of allEngineerAccount$">
+                                                    <ng-container *ngIf="eng.id_acc === acc.id_acc">
+                                                        <button class="btn-delete btn-update" data-toggle="modal" data-target="#updateAccountModal" title="Cập nhật" (click)="onUpdate(acc,eng)">
+                                                          <i class="fas fa-edit text-white"></i>
+                                                        </button>
+                                                    </ng-container>
+                                                </ng-container>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="acc.id_role === 3">
+                                                <ng-container *ngFor="let agen of allAgencyAccount$">
+                                                    <ng-container *ngIf="agen.id_acc === acc.id_acc">
+                                                        <button class="btn-delete btn-update" data-toggle="modal" data-target="#updateAccountModal" title="Cập nhật" (click)="onUpdate(acc,agen)">
+                                                          <i class="fas fa-edit text-white"></i>
+                                                        </button>
+                                                    </ng-container>
+                                                </ng-container>
+                                            </ng-container>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Default Light Table -->
+
+            <!-- Modal -->
+            <div class="modal fade bd-example-modal-lg" id="insertAccountModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <app-add-account></app-add-account>
+            </div>
+            <!-- Update account -->
+            <div class="modal fade bd-example-modal-lg" id="updateAccountModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-add" id="exampleModalCenterTitle">Cập nhật tài khoản</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Default Light Table -->
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="col">
+                                        <label class="hoverable">
+                      <img [src]="createImgPath(imageAcc)" class="imageAvatar mx-auto d-block">
+                      <div class="background"></div>
+                    </label>
+                                    </div>
+                                    <div class="col">
+                                        <div for="email" class="text-center">Trạng thái tài khoản</div>
+                                        <div class="wrapper" [formGroup]="selectedAccountForm">
+                                            <input type="radio" value="1" name="select" formControlName="is_active" id="true">
+                                            <input type="radio" value="0" name="select" formControlName="is_active" id="false">
+
+                                            <label for="true" class="option true ml-0 mr-0 mb-1">
+                        <div class="dot"></div>
+                        <span>Đang hoạt động</span>
+                      </label>
+                                            <label for="false" class="option false ml-0 mr-0">
+                        <div class="dot"></div>
+                        <span>Vô hiệu hoá</span>
+                      </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Nhập đại lí -->
+                                <div class="col-lg-8">
+                                    <div class="card card-small mb-4">
+                                        <div class="card-header border-bottom">
+                                            <h6 class="m-0">Chi tiết tài khoản</h6>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item p-3">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <!-- Form thêm tài khoản -->
+                                                        <form [formGroup]="selectedAccountForm" novalidate>
+
+                                                            <div class="form-row">
+                                                                <!-- Tên tài khoản -->
+                                                                <div class="form-group col-md-12">
+                                                                    <label for="username">Tên tài khoản</label>
+                                                                    <input type="text" class="form-control" [formControlName]="'username'" id="username" placeholder="Tên tài khoản" readonly>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-row">
+                                                                <!-- Họ và tên -->
+                                                                <div class="form-group col-md-12">
+                                                                    <label for="fullname">Họ và tên</label>
+                                                                    <form [formGroup]="selectedSubAccountForm" novalidate>
+                                                                        <input type="text" class="form-control" [formControlName]="'fullname'" id="fullname" placeholder="Họ và tên" readonly>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-row">
+                                                                <!-- Email -->
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="email">Email</label>
+                                                                    <input type="text" class="form-control" [formControlName]="'email'" id="email" placeholder="example@gmail.com" readonly>
+                                                                </div>
+                                                                <!-- Ngày sinh -->
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="pro_expirydate">Ngày sinh</label>
+                                                                    <form [formGroup]="selectedSubAccountForm" novalidate>
+                                                                        <input type="date" min="1000-01-01" max="3000-12-31" class="form-control" [formControlName]="'birthday'" readonly>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-row">
+                                                                <!-- Vai trò -->
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="roles">
+                                    Giới tính
+                                  </label>
+                                                                    <form [formGroup]="selectedSubAccountForm" novalidate>
+                                                                        <select class="form-control" [formControlName]="'gender'" readonly>
+                                      <option selected>Chọn giới tính của bạn</option>
+                                      <option [value]="1">Nam</option>
+                                      <option [value]="2">Nữ</option>
+                                    </select>
+                                                                    </form>
+                                                                </div>
+                                                                <!-- Số điện thoại -->
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="phone">Số điện thoại</label>
+                                                                    <input type="number" class="form-control" [formControlName]="'phone'" id="phone" readonly>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-row">
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="address">Địa chỉ</label>
+                                                                    <input type="text" class="form-control" [formControlName]="'address'" id="address" readonly>
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label>Vai trò</label>
+                                                                    <span class="form-control text-success" *ngIf="role === 1" readonly>Admin</span>
+                                                                    <span class="form-control text-success" *ngIf="role === 2" readonly>Kỹ sư</span>
+                                                                    <span class="form-control text-success" *ngIf="role === 3" readonly>Đại lý</span>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Default Light Table -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeButton">Đóng</button>
+                            <button type="button" class="btn btn-save" (click)="onSubmit()">Cập nhật</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

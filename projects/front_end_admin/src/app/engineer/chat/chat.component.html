@@ -1,0 +1,288 @@
+<div class="row">
+  <!-- Main Sidebar -->
+  <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
+    <div class="main-navbar">
+      <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
+        <a class="navbar-brand w-100 mr-0" style="line-height: 25px;">
+          <div class="d-table m-auto">
+            <span class="d-none d-md-inline ml-1 h3 text-uppercase" style="font-size: 150%;">Bảng điều khiển</span>
+          </div>
+        </a>
+        <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
+          <i class="material-icons">&#xE5C4;</i>
+        </a>
+      </nav>
+    </div>
+    <form action="#" class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
+      <div class="input-group input-group-seamless ml-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+        <input class="navbar-search form-control" type="text" placeholder="Tìm kiếm..." aria-label="Search">
+      </div>
+    </form>
+
+    <ng-container *ngIf="this.getUserDataS['id_role'] == 2">
+      <div class="nav-wrapper">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/disease']">
+              <i class="material-icons">coronavirus</i>
+              <span title="Trang tổng quan">Quản lí bệnh</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['/chat']">
+              <i class="material-icons">question_answer</i>
+              <span title="Thoát">Chat</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/ai-intents']">
+              <i class="material-icons">vpn_key</i>
+              <span title="Thoát">Từ khoá</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/login']">
+              <i class="material-icons">logout</i>
+              <span title="Thoát">Thoát</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="this.getUserDataS['id_role'] == 1">
+      <div class="nav-wrapper">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/dashboard']">
+              <i class="material-icons">edit</i>
+              <span title="Trang tổng quan">Trang Tổng quan</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/account-management']">
+              <i class="material-icons">manage_accounts</i>
+              <span title="Quản lí tài khoản">Quản lí tài khoản</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/agency-management']">
+              <i class="material-icons">apartment</i>
+              <span title="Quản lí tài khoản">Quản lí đại lý</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/product-management']">
+              <i class="material-icons">view_in_ar</i>
+              <span title="Quản lí sản phẩm">Quản lí sản phẩm</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/voucher-management']">
+              <i class="material-icons">confirmation_number</i>
+              <span title="Quản lí danh mục">Quản lí mã giảm giá</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/disease']">
+              <i class="material-icons">coronavirus</i>
+              <span title="Trang tổng quan">Quản lí bệnh</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/ai-intents']">
+              <i class="material-icons">vpn_key</i>
+              <span title="Thoát">Từ khoá</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/login']">
+              <i class="material-icons">logout</i>
+              <span title="Thoát">Thoát</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="this.getUserDataS['id_role'] == 3">
+      <div class="nav-wrapper">
+        <ul class="nav flex-column">
+          <!-- <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/dashboard']">
+            <i class="material-icons">edit</i>
+            <span title="Trang tổng quan">Trang Tổng quan</span>
+            </a>
+        </li> -->
+          <!-- <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/account-management']">
+            <i class="material-icons">manage_accounts</i>
+            <span title="Quản lí tài khoản">Quản lí tài khoản</span>
+            </a>
+        </li> -->
+          <!-- <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/agency-management']">
+            <i class="material-icons">apartment</i>
+            <span title="Quản lí tài khoản">Quản lí đại lý</span>
+            </a>
+        </li> -->
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/product-management']">
+              <i class="material-icons">view_in_ar</i>
+              <span title="Quản lí sản phẩm">Quản lí sản phẩm</span>
+            </a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/voucher-management']">
+            <i class="material-icons">confirmation_number</i>
+            <span title="Quản lí danh mục">Quản lí mã giảm giá</span>
+            </a>
+        </li> -->
+          <!-- <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/disease']">
+            <i class="material-icons">coronavirus</i>
+            <span title="Trang tổng quan">Quản lí bệnh</span>
+            </a>
+        </li> -->
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/login']">
+              <i class="material-icons">logout</i>
+              <span title="Thoát">Thoát</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+
+  </aside>
+
+  <!-- End Main Sidebar -->
+  <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+    <div class="main-navbar sticky-top bg-white">
+      <app-navbar></app-navbar>
+    </div>
+
+
+    <div class="messaging">
+      <div class="inbox_msg">
+        <div class="inbox_people">
+          <div class="headind_srch">
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">TIN NHẮN CHƯA NHẬN</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab" id="tabpane-2">TIN NHẮN ĐÃ NHẬN</a>
+              </li>
+            </ul><!-- Tab panes -->
+            <div class="tab-content">
+              <ng-container>
+                <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                  <div class="inbox_chat">
+                    <div class="chat_list active_chat" *ngFor="let roomNum of getChat"
+                      (click)="handlerMess(roomNum.room)">
+                      <div class="chat_people">
+                        <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+                        </div>
+                        <div class="chat_ib">
+                          <h5> Khách Hàng<span class="chat_date"> {{roomNum.room.timestamp | date:'medium'}} </span>
+                          </h5>
+                          <p> {{roomNum.message.message}} </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+
+
+              <ng-container>
+                <div class="tab-pane" id="tabs-2" role="tabpanel">
+                  <div class="inbox_chat">
+                    <div class="chat_list active_chat" *ngFor="let roomHandler of getChatHandler" id="tab-panel-2-2"
+                      (click)="getMessage(roomHandler.room.id_room)">
+                      <div class="chat_people">
+                        <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+                        </div>
+                        <div class="chat_ib">
+                          <h5>Khách Hàng <span class="chat_date">{{roomHandler.room.timestamp | date:'medium'}}</span>
+                          </h5>
+                          <p *ngIf="id_acc == roomHandler.message.id_acc">Bạn: {{roomHandler.message.message}}</p>
+                          <p *ngIf="id_acc != roomHandler.message.id_acc">{{roomHandler.message.message}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+
+        <div class="mesgs">
+          <div class="msg_history" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+            <div class="incoming_msg mb-3" *ngFor="let messNumber of getMessbyID">
+              <ng-container *ngIf="id_acc != messNumber.id_acc">
+                <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+                </div>
+
+                <div class="received_msg" *ngIf="messNumber.message != ''">
+                  <div class="received_withd_msg">
+                    <p> {{ messNumber.message }} </p>
+                    <span class="time_date"> {{ messNumber.timestamp | date:'medium' }}</span>
+                  </div>
+                </div>
+                <div class="received_msg" *ngIf="messNumber.image != null">
+                  <div class="received_msg">
+                    <ng-container>
+                      <img class="imageAvatar d-block" width="230px" [src]="createImgPath(messNumber.image)" />
+                      <span class="time_date"> {{ messNumber.timestamp | date:'medium' }} </span>
+                    </ng-container>
+                  </div>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="id_acc == messNumber.id_acc">
+                <div class="outgoing_msg" *ngIf="messNumber.message != ''">
+                  <div class="sent_msg">
+                    <p> {{ messNumber.message }} </p>
+                    <span class="time_date"> {{ messNumber.timestamp | date:'medium' }} </span>
+                  </div>
+                </div>
+                <div class="outgoing_msg" *ngIf="messNumber.image != null">
+                  <div class="sent_msg">
+                    <ng-container>
+                      <img class="imageAvatar d-block" width="230px" [src]="createImgPath(messNumber.image)" />
+                      <span class="time_date"> {{ messNumber.timestamp | date:'medium' }} </span>
+                    </ng-container>
+                  </div>
+                </div>
+              </ng-container>
+
+            </div>
+          </div>
+          <div class="type_msg">
+            <form [formGroup]="chatForm" (keydown)="keyDownFunction($event)">
+              <div class="publisher bt-1 border-light">
+                <input class="publisher-input" type="text" placeholder="Nhập tin nhắn" [formControlName]="'message'">
+                <a class="publisher-btn file-group mr-2" (click)="handleClick()">
+                  <i class="fa fa-paperclip file-browser"></i>
+                  <!-- <i class="fa-light fa-microchip"></i> -->
+                </a>
+                <input class="hidden" id="fileInput" type='file' (change)="selectedFile(activeFrameinputFile)"
+                  #activeFrameinputFile>
+                <a class="publisher-btn text-info" data-abc="true" (click)="userChat()">
+                  <i class="fa fa-paper-plane"></i>
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

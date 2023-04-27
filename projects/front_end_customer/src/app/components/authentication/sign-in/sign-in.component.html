@@ -1,0 +1,40 @@
+<section class="osahan-main-body osahan-signin-main">
+      <div class="container-fluid bg-success">
+         <div class="row d-flex align-items-center justify-content-center vh-100">
+            <div class="col-lg-4">
+               <div class="osahan-slider-item text-center">
+                  <div class="d-flex align-items-center justify-content-center vh-100 flex-column">
+                     <img class="img-fluid rounded-pill border shadow-sm" src="./assets/img/logo.svg">
+                     <h4 class="my-4 text-white">PTECH</h4>
+                     <p class="text-center text-white mb-5 h5">Nền tảng thương mại được phát triển bởi nhóm Ptech</p>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-4 pl-lg-5">
+               <div class="osahan-signin shadow-sm bg-white p-4 rounded">
+                  <div class="p-3">
+                     <h2 class="my-0">Chào mừng bạn đến với PTECH</h2>
+                     <p class="small mb-4">Tiếp tục với đăng nhập</p>
+                     <form action="verification.html">
+                        <div class="form-group">
+                              <label for="exampleInputEmail1">Tài khoản</label>
+                              <input placeholder="Nhập tên tài khoản" type="text" name="username" [(ngModel)]="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                              <label for="exampleInputPassword1">Mật khẩu</label>
+                              <input placeholder="Nhập mật khẩu" type="password" name="password" [(ngModel)]="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <button type="submit" class="btn btn-success btn-lg rounded btn-block" (click)="submit()">Đăng nhập</button>
+                     </form>
+                     <p class="text-muted text-center small m-0 py-3">or</p>
+                     <button  class="btn btn-light border btn-block rounded btn-lg btn-google" (click)="signInGoogle()">
+                     <i class="icofont-google-plus text-danger mr-2" ></i> Đăng ký với Google
+                     </button>
+                     <p class="text-center mt-3 mb-0"><a [routerLink]="['/sign-up']" class="text-dark">Ban chưa có tài khoản? <em class="font-weight-bold">Đăng ký</em></a></p>
+                     <p class="text-center mt-3 mb-0"><a [routerLink]="['/forgot-password']" class="text-dark">Quên mật khẩu?</a></p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+</section>

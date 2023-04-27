@@ -1,0 +1,23 @@
+/*effect-underline*/
+
+.effect-underline:hover {
+    text-decoration: underline;
+}
+
+.pt-image-manager__image {
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: transparent 100% no-repeat;
+    background-size: contain;
+}
+
+pt-image-manager__image1{
+    top: 0;
+    left: 0;
+    width: 600px;
+    height: 300px;
+    background: transparent 100% no-repeat;
+    background-size: contain;
+}

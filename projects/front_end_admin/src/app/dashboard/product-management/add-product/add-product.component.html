@@ -1,0 +1,230 @@
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title text-add" id="exampleModalCenterTitle">Thêm sản phẩm</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <!-- Default Light Table -->
+      <div class="row">
+        <!-- Nhập sản phẩm -->
+        <div class="col-lg-12">
+          <div class="card card-small mb-4">
+            <div class="card-header border-bottom">
+              <h6 class="m-0">Chi tiết sản phẩm</h6>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item p-3">
+                <div class="row">
+                  <div class="col">
+                    <!-- Form  -->
+                    <form [formGroup]="productForm" novalidate>
+
+                      <div class="row">
+                        <!-- cover image -->
+                        <div class="col-md-2 form-row" style="margin-bottom: 6rem;">
+                          <div class="form-group col-md-12">
+                            <div class="pt-image-manager__image">
+                              <div class="popover-wrap">
+                                <ng-container *ngIf="imageUrl != null; else noImage">
+                                  <img data-v-9ba6da96="" data-v-608b5b32="" [src]="imageUrl"
+                                    class="pt-image-manager__image" data-v-5bb79eae="">
+                                </ng-container>
+                                <ng-template #noImage>
+                                  <p class="pt-image-manager__image text-center">No image</p>
+                                </ng-template>
+                                <div class="pt-image-manager__content content-fill">
+                                  <div class="pt-image-manager__upload">
+                                    <div class="pt-file-upload" accept="image/*">
+                                      <div class="pt-upload">
+                                        <div class="pt-upload-wrapper shopee-upload-dragger">
+                                          <input class="hidden opacity-0" type="file" id="fileInput" multiple
+                                            [accept]="'image/*'" (change)="selectedFile(fileInput)" #fileInput>
+                                          <div class="pt-image-manager__upload__content">
+                                            <a class="pt-icon m-4" (click)="handleClick()">
+                                              <i class="fa fa-plus-circle"></i>
+                                            </a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="explain-text">
+                                  <p>Ảnh bìa</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- image 1 -->
+                        <div class="col-md-2 form-row" style="margin-bottom: 6rem;">
+                          <div class="form-group col-md-12">
+                            <div class="pt-image-manager__image">
+                              <div class="popover-wrap">
+                                <ng-container *ngIf="imageUrl1 != null; else noImage">
+                                  <img data-v-9ba6da96="" data-v-608b5b32="" [src]="imageUrl1"
+                                    class="pt-image-manager__image" data-v-5bb79eae="">
+                                </ng-container>
+                                <ng-template #noImage>
+                                  <p class="pt-image-manager__image">No image</p>
+                                </ng-template>
+                                <div class="pt-image-manager__content content-fill">
+                                  <div class="pt-image-manager__upload">
+                                    <div class="pt-file-upload" accept="image/*">
+                                      <div class="pt-upload">
+                                        <div class="pt-upload-wrapper shopee-upload-dragger">
+                                          <input class="hidden opacity-0" type="file" id="fileInput1" multiple
+                                            [accept]="'image/*'" (change)="selectedFile1(fileInput1)" #fileInput1>
+                                          <div class="pt-image-manager__upload__content">
+                                            <a class="pt-icon m-4" (click)="handleClick1()">
+                                              <i class="fa fa-plus-circle"></i>
+                                            </a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="explain-text">
+                                  <p>Hình ảnh 1</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- image 2 -->
+                        <div class="col-md-2 form-row" style="margin-bottom: 6rem;">
+                          <div class="form-group col-md-12">
+                            <div class="pt-image-manager__image">
+                              <div class="popover-wrap">
+                                <ng-container *ngIf="imageUrl2 != null; else noImage">
+                                  <img data-v-9ba6da96="" data-v-608b5b32="" [src]="imageUrl2"
+                                    class="pt-image-manager__image" data-v-5bb79eae="">
+                                </ng-container>
+                                <ng-template #noImage>
+                                  <p class="pt-image-manager__image">No image</p>
+                                </ng-template>
+                                <div class="pt-image-manager__content content-fill">
+                                  <div class="pt-image-manager__upload">
+                                    <div class="pt-file-upload" accept="image/*">
+                                      <div class="pt-upload">
+                                        <div class="pt-upload-wrapper shopee-upload-dragger">
+                                          <input class="hidden opacity-0" type="file" id="fileInput2" multiple
+                                            [accept]="'image/*'" (change)="selectedFile2(fileInput2)" #fileInput2>
+                                          <div class="pt-image-manager__upload__content">
+                                            <a class="pt-icon m-4" (click)="handleClick2()">
+                                              <i class="fa fa-plus-circle"></i>
+                                            </a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="explain-text">
+                                  <p>Hỉnh ảnh 2</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Name product -->
+                      <div class="form-row">
+                        <div class="form-group col-md-12">
+                          <label for="pro_name">Tên sản phẩm</label>
+                          <input type="text" class="form-control" [formControlName]="'name_product'" required
+                            id="pro_name" placeholder="Tên...">
+                        </div>
+                      </div>
+
+                      <div class="form-row">
+                        <!-- Category -->
+                        <div class="form-group col-md-6">
+                          <label>
+                            Danh mục
+                          </label>
+                          <select class="form-control" (change)="getValueCate($event)">
+                            <option value="">Vui lòng chọn danh mục</option>
+                            <option value="Chất Dụ Côn Trùng">Chất Dụ Côn Trùng</option>
+                            <option value="Thuốc Điều Hòa Sinh Trưởng">Thuốc Điều Hòa Sinh Trưởng</option>
+                            <option value="Thuốc Trừ Bệnh">Thuốc Trừ Bệnh</option>
+                            <option value="Thuốc Trừ Chuột">Thuốc Trừ Chuột</option>
+                            <option value="Thuốc Trừ Cỏ">Thuốc Trừ Cỏ</option>
+                            <option value="Thuốc Trừ Ốc">Thuốc Trừ Ốc</option>
+                            <option value="Thuốc Trừ Sâu">Thuốc Trừ Sâu</option>
+                          </select>
+                        </div>
+                        <!-- Price -->
+                        <div class="form-group col-md-6">
+                          <label for="pro_price">Giá</label>
+                          <input class="form-control" [formControlName]="'price'" pattern="^[1-9][0-9]*$" type="number"
+                            min="1" id="pro_price" placeholder="VNĐ">
+                          <span class="text-danger"
+                            *ngIf="(productFormControl.price.touched) && productFormControl.price.errors?.required">
+                            Vui lòng nhập giá
+                          </span>
+                          <span class="text-danger"
+                            *ngIf="(productFormControl.price.touched) && productFormControl.price.errors?.pattern">
+                            Giá chưa hợp lệ
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="form-row">
+                        <!-- Quantity -->
+                        <div class="form-group col-md-6">
+                          <label for="pro_quantity">Số lượng</label>
+                          <input class="form-control" [formControlName]="'quantity'" pattern="^[1-9][0-9]*$"
+                            type="number" name="product_quantity">
+                          <span class="text-danger"
+                            *ngIf="(productFormControl.quantity.touched) && productFormControl.quantity.errors?.required">
+                            Vui lòng nhập giá
+                          </span>
+                          <span class="text-danger"
+                            *ngIf="(productFormControl.quantity.touched) && productFormControl.quantity.errors?.pattern">
+                            Giá chưa hợp lệ
+                          </span>
+                        </div>
+                        <!-- Brand-->
+                        <div class="form-group col-md-6">
+                          <label for="pro_brand">Thương hiệu</label>
+                          <input type="text" class="form-control" [formControlName]="'brand'" required id="pro_brand"
+                            placeholder="ABC">
+                        </div>
+                      </div>
+
+                      <div class="form-row">
+                        <!-- Expirydate -->
+                        <div class="form-group col-md-6">
+                          <label for="pro_expirydate">Ngày hết hạn</label>
+                          <input type="date" [formControlName]="'expirydate'" name="bday" min="1000-01-01"
+                            max="3000-12-31" class="form-control">
+                        </div>
+                        <!-- Description -->
+                        <div class="form-group col-md-6">
+                          <label for="pro_description">Mô tả</label>
+                          <textarea class="form-control" [formControlName]="'description'" required id="pro_description"
+                            rows="3" name="description"></textarea>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- End Default Light Table -->
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="resetFormClose()" data-dismiss="modal" #btnClose id="closeButton">Đóng</button>
+      <button type="button" class="btn btn-save" (click)="onSubmit()">Thêm</button>
+    </div>
+  </div>
+</div>

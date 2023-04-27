@@ -1,0 +1,187 @@
+<!-- bread_cum -->
+<nav aria-label="breadcrumb" class="breadcrumb mb-0">
+    <div class="container">
+        <ol class="d-flex align-items-center mb-0 p-0">
+            <li class="breadcrumb-item"><a [routerLink]="['/home']" class="text-success">Trang chủ</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Danh sách sản phẩm</li>
+        </ol>
+    </div>
+</nav>
+<!-- body -->
+<section class="py-4 osahan-main-body">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="osahan-listing">
+                    <ng-container *ngIf="this.allProducts$.length > 0; else noProducts">
+                        <div class="d-flex align-items-center mb-3">
+                            <h4>Danh sách sản phẩm</h4>
+                            <div class="m-0 text-center ml-auto row">
+                                <div class="col col-md-4">
+                                    <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">
+                                        Lọc sản phẩm
+                                    </button>                                      
+                                </div>
+                                <div class="col col-md-4">
+                                    <select class="form-control" id="exampleFormControlSelect" (change)="sortProductByPrice($event)">
+                                        <option value="undefined">Chọn giá tiền</option>
+                                        <option value="10to50">10.000 - 50.000</option>
+                                        <option value="50to100">50.000 - 100.000</option>
+                                        <option value="100to200">100.000 - 200.000</option>
+                                        <option value="200to350">200.000 - 350.000</option>
+                                        <option value="350to450">350.000 - 450.000</option>
+                                        <option value="450toBig"> >= 450.000</option>
+                                    </select>
+                                </div>
+                                <div class="col col-md-4">
+                                    <select class="form-control" id="exampleFormControlSelect" (change)="changeSortByPrice($event)">
+                                        <option value="Name">Theo chữ cái (ABC)</option>
+                                        <option value="High">Giá từ cao đến thấp</option>
+                                        <option value="Low">Giá từ thấp đến cao</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- list product  -->
+                        <div class="row">
+                            <ng-container *ngFor="let pro of allProducts$ | paginate: {itemsPerPage: pagination.size, currentPage: pagination.page, totalItems: pagination.length} | filter: searchKey: 'name_product' ">
+                                <div class="col-6 col-md-3 mb-3">
+                                    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+                                        <div class="list-card-image">
+                                            <a [routerLink]="['/product-details/', pro.id_product]" class="text-dark">
+                                                <div class="p-3 text-center">
+                                                    <img [src]="createImgPath(pro.image_defaul)" class="img-fluid pt-image-manager__image">
+                                                    <!-- name -->
+                                                    <h6 class="effect-underline">{{pro.name_product}}</h6>
+                                                    <div class="align-items-center">
+                                                        <!-- price -->
+                                                        <h6 class="price m-0 text-success">{{pro.price | number}} ₫</h6>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="row justify-content-center">
+                            <pagination-controls class="my-pagination" previousLabel="Trước" nextLabel="Tiếp" (pageChange)="changePage(pagination.page = $event)"></pagination-controls>
+                        </div>
+                    </ng-container>
+                    <!-- Haven't products -->
+                    <ng-template #noProducts>
+                        <div class="d-flex align-items-center mb-3">
+                            <h4>Danh sách sản phẩm</h4>
+                            <div class="m-0 text-center ml-auto row">
+                                <div class="col col-md-4">
+                                    <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">
+                                        Lọc sản phẩm
+                                    </button>                                      
+                                </div>
+                                <div class="col col-md-4">
+                                    <select class="form-control" id="exampleFormControlSelect" (change)="sortProductByPrice($event)">
+                                        <option value="undefined">Chọn giá tiền</option>
+                                        <option value="10to50">10.000 - 50.000</option>
+                                        <option value="50to100">50.000 - 100.000</option>
+                                        <option value="100to200">100.000 - 200.000</option>
+                                        <option value="200to350">200.000 - 350.000</option>
+                                        <option value="350to450">350.000 - 450.000</option>
+                                        <option value="450toBig"> > 450.000</option>
+                                    </select>
+                                </div>
+                                <div class="col col-md-4">
+                                    <select class="form-control" id="exampleFormControlSelect" (change)="changeSortByPrice($event)">
+                                        <option value="Name">Theo chữ cái (ABC)</option>
+                                        <option value="High">Giá từ cao đến thấp</option>
+                                        <option value="Low">Giá từ thấp đến cao</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <h6 class="text-center text-dark">Không tìm thấy sản phẩm</h6>
+                    </ng-template>
+                    <!-- end list product  -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- modal filter & sort-by  -->
+<div class="modal fade right-modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">LỌC SẢN PHẨM</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body p-0">
+                <div class="osahan-filter">
+                    <div class="filter">
+                        <!-- SORT BY -->
+                        <form [formGroup]="filterForm">
+                            <div class="custom-control border-bottom px-0 custom-radio">
+                                <label class="custom-control-label py-3 w-100 pl-5 container">
+                                    Chất dẫn dụ côn trùng
+                                    <input type="checkbox" class="control-input" [formControlName]="'chat_dan_du_con_trung'"/> 
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="custom-control border-bottom px-0 custom-radio">
+                                <label class="custom-control-label py-3 w-100 pl-5 container">
+                                    Thuốc điều hòa sinh trưởng
+                                    <input type="checkbox" class="control-input" [formControlName]="'thuoc_dieu_hoa_sinh_truong'"/> 
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="custom-control border-bottom px-0 custom-radio">
+                                <label class="custom-control-label py-3 w-100 pl-5 container">
+                                    Thuốc trừ bệnh
+                                    <input type="checkbox" class="control-input" [formControlName]="'thuoc_tru_benh'"/> 
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="custom-control border-bottom px-0 custom-radio">
+                                <label class="custom-control-label py-3 w-100 pl-5 container">
+                                    Thuốc trừ chuột
+                                    <input type="checkbox" class="control-input" [formControlName]="'thuoc_tru_chuot'"/> 
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="custom-control border-bottom px-0 custom-radio">
+                                <label class="custom-control-label py-3 w-100 pl-5 container">
+                                    Thuốc trừ cỏ
+                                    <input type="checkbox" class="control-input" [formControlName]="'thuoc_tru_co'"/> 
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="custom-control border-bottom px-0 custom-radio">
+                                <label class="custom-control-label py-3 w-100 pl-5 container">
+                                    Thuốc trừ ốc
+                                    <input type="checkbox" class="control-input" [formControlName]="'thuoc_tru_oc'"/> 
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="custom-control border-bottom px-0 custom-radio">
+                                <label class="custom-control-label py-3 w-100 pl-5 container">
+                                    Thuốc trừ sâu
+                                    <input type="checkbox" class="control-input" [formControlName]="'thuoc_tru_sau'"/> 
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer p-0 border-0">
+                <div class="col-6 m-0 p-0">
+                    <button type="button" class="btn border-top btn-lg btn-block" data-dismiss="modal" #btnClose>Đóng</button>
+                </div>
+                <div class="col-6 m-0 p-0">
+                    <button type="button" class="btn btn-success btn-lg btn-block" (click)="filterCategory()">Xem kết quả</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+.effect-underline:hover {
+    text-decoration: underline;
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: #28a745;
+}
+
+.nav-pills {
+    border-bottom: 1px solid #ddd;
+}
+.nav-pills li a {
+    background: #FFF;
+    color: #000;
+    display: block;
+    line-height: 2em;
+    padding: 7px 15px;
+    border-radius: 0;
+    font-size: 20px;
+    border: none;
+    margin: 30px 2px 0;
+}
+ul li a {
+    text-decoration: none;
+}
+.nav-pills li a.active {
+    background: #28a745;
+    border: none;
+    color: #FFF;
+}

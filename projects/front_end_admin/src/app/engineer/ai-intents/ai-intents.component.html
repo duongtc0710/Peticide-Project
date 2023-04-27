@@ -1,0 +1,338 @@
+<div class="row">
+  <!-- Main Sidebar -->
+  <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
+    <div class="main-navbar">
+      <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
+        <a class="navbar-brand w-100 mr-0" style="line-height: 25px;">
+          <div class="d-table m-auto">
+            <span class="d-none d-md-inline ml-1 h3 text-uppercase" style="font-size: 150%;">Bảng điều khiển</span>
+          </div>
+        </a>
+        <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
+          <i class="material-icons">&#xE5C4;</i>
+        </a>
+      </nav>
+    </div>
+    <form action="#" class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
+      <div class="input-group input-group-seamless ml-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+        <input class="navbar-search form-control" type="text" placeholder="Tìm kiếm..." aria-label="Search">
+      </div>
+    </form>
+
+    <ng-container *ngIf="this.getUserDataS['id_role'] == 2">
+      <div class="nav-wrapper">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/disease']">
+              <i class="material-icons">coronavirus</i>
+              <span title="Trang tổng quan">Quản lí bệnh</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/chat']">
+              <i class="material-icons">question_answer</i>
+              <span title="Thoát">Chat</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" [routerLink]="['/ai-intents']">
+              <i class="material-icons">vpn_key</i>
+              <span title="Thoát">Từ khoá</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/login']">
+              <i class="material-icons">logout</i>
+              <span title="Thoát">Thoát</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="this.getUserDataS['id_role'] == 1">
+      <div class="nav-wrapper">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/dashboard']">
+              <i class="material-icons">edit</i>
+              <span title="Trang tổng quan">Trang Tổng quan</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/account-management']">
+              <i class="material-icons">manage_accounts</i>
+              <span title="Quản lí tài khoản">Quản lí tài khoản</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/agency-management']">
+              <i class="material-icons">apartment</i>
+              <span title="Quản lí tài khoản">Quản lí đại lý</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/product-management']">
+              <i class="material-icons">view_in_ar</i>
+              <span title="Quản lí sản phẩm">Quản lí sản phẩm</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/voucher-management']">
+              <i class="material-icons">confirmation_number</i>
+              <span title="Quản lí danh mục">Quản lí mã giảm giá</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/order-management']">
+              <i class="material-icons">reorder</i>
+              <span title="Quản lí danh mục">Quản lí đơn hàng</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/disease']">
+              <i class="material-icons">coronavirus</i>
+              <span title="Trang tổng quan">Quản lí bệnh</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['/ai-intents']">
+              <i class="material-icons">vpn_key</i>
+              <span title="Thoát">Từ khoá</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/login']">
+              <i class="material-icons">logout</i>
+              <span title="Thoát">Thoát</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="this.getUserDataS['id_role'] == 3">
+      <div class="nav-wrapper">
+        <ul class="nav flex-column">
+          <!-- <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/dashboard']">
+                <i class="material-icons">edit</i>
+                <span title="Trang tổng quan">Trang Tổng quan</span>
+                </a>
+            </li> -->
+          <!-- <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/account-management']">
+                <i class="material-icons">manage_accounts</i>
+                <span title="Quản lí tài khoản">Quản lí tài khoản</span>
+                </a>
+            </li> -->
+          <!-- <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/agency-management']">
+                <i class="material-icons">apartment</i>
+                <span title="Quản lí tài khoản">Quản lí đại lý</span>
+                </a>
+            </li> -->
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/product-management']">
+              <i class="material-icons">view_in_ar</i>
+              <span title="Quản lí sản phẩm">Quản lí sản phẩm</span>
+            </a>
+          </li>
+          <!-- <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/voucher-management']">
+                <i class="material-icons">confirmation_number</i>
+                <span title="Quản lí danh mục">Quản lí mã giảm giá</span>
+                </a>
+            </li> -->
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/order-management']">
+              <i class="material-icons">reorder</i>
+              <span title="Quản lí danh mục">Quản lí đơn hàng</span>
+            </a>
+          </li>
+          <!-- <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/disease']">
+                <i class="material-icons">coronavirus</i>
+                <span title="Trang tổng quan">Quản lí bệnh</span>
+                </a>
+            </li> -->
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/login']">
+              <i class="material-icons">logout</i>
+              <span title="Thoát">Thoát</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+  </aside>
+
+  <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+    <div class="main-navbar sticky-top bg-white">
+      <app-navbar></app-navbar>
+    </div>
+    <div class="main-content-container container-fluid px-4">
+      <!-- Page Header -->
+      <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-4 text-left text-sm-left mb-0">
+          <span class="text-uppercase page-subtitle">Tổng quát</span>
+          <h3 class="page-title">Từ khoá</h3>
+        </div>
+      </div>
+      <!-- End Page Header -->
+      <div class="modal fade bd-example-modal-lg" id="addIntentModel" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <app-add-intents></app-add-intents>
+      </div>
+      <!-- Default Light Table -->
+      <div class="row">
+        <div class="col col-md-6">
+          <div class="card card-small mb-4">
+            <div class="card-header border-bottom">
+              <div class="row">
+                <div class="col col-md-6"></div>
+                <div class="col col-md-2">
+                  <!-- Button trigger modal -->
+                  <button (click)="onTrain()" type="button" class="btn btn1 btn-add"
+                    title="Train" *ngIf="this.getUserDataS['id_role'] == 2">
+                    <!-- <i class="fas fa-plus-circle fa-lg mr-1"></i>  -->
+                    Train Data
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="card-body p-0 pb-3 text-center">
+              <table class="table table-bordered mb-0">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Tên bệnh</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    *ngFor="let dis of allDiseases$ | paginate: {itemsPerPage: pagination.size, currentPage: pagination.page, totalItems: pagination.length}">
+                    <td (click)="showKey(dis.id_disease)">{{dis.name_disease}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="row justify-content-center">
+                <pagination-controls class="my-pagination" previousLabel="Trước" nextLabel="Tiếp"
+                  (pageChange)="changePageDisease(pagination.page = $event)"></pagination-controls>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col col-md-6">
+          <div class="card card-small mb-4">
+            <div class="card-header border-bottom">
+              <div class="row">
+                <div class="col col-md-6"></div>
+                <div class="col col-md-2">
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn1 btn-add" data-toggle="modal" data-target="#addIntentModel"
+                    title="Thêm" *ngIf="this.getUserDataS['id_role'] == 2">
+                    <i class="fas fa-plus-circle fa-lg mr-1"></i> Thêm khoá
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="card-body p-0 pb-3 text-center">
+              <table class="table table-bordered mb-0">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Từ khoá</th>
+                    <th scope="col" *ngIf="this.getUserDataS['id_role'] == 2"></th>
+                    <th scope="col" *ngIf="this.getUserDataS['id_role'] == 2"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    *ngFor="let dis of allKey$ | paginate: {itemsPerPage: pagination.size, currentPage: pagination.page, totalItems: pagination.length}">
+                    <td>{{dis.key}}</td>
+                    <td *ngIf="this.getUserDataS['id_role'] == 2">
+                      <button class="btn-delete btn-update" data-toggle="modal" data-target="#editDetailCategoryModal"
+                        title="Cập nhật" (click)="onUpdate(dis)">
+                        <i class="fas fa-edit text-white"></i>
+                      </button>
+                    </td>
+                    <td *ngIf="this.getUserDataS['id_role'] == 2">
+                      <button class="btn-delete btn-danger" title="Xóa" (click)="openDialog(content, dis.id_intent)">
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="row justify-content-center">
+                <pagination-controls class="my-pagination" previousLabel="Trước" nextLabel="Tiếp"
+                  (pageChange)="changePageKey(paginationKey.pageKey = $event)"></pagination-controls>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade bd-example-modal-lg" id="editDetailCategoryModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header bg-success">
+              <h5 class="modal-title text-add text-white" id="exampleModalCenterTitle">Cập nhật</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- Default Light Table -->
+              <div class="row">
+                <!-- Nhập sản phẩm -->
+                <div class="col-lg-12">
+                  <form novalidate [formGroup]="KeyForm">
+                    <div class="form-row">
+                      <div class="form-group col-md-8 mx-auto">
+                        <input type="text" class="form-control" id="name_dis" [formControlName]="'key'" required>
+                      </div>
+                    </div>
+                  </form>
+                  <!-- Pagenation -->
+                  <div class="row justify-content-center">
+                    <!-- <pagination-controls class="my-pagination" previousLabel="Trước" nextLabel="Tiếp"
+                      (pageChange)="changePageKey(pagination.page = $event)"></pagination-controls> -->
+                  </div>
+                </div>
+              </div>
+              <!-- End Default Light Table -->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCloseEdit">Đóng</button>
+              <button type="button" class="btn btn-save" (click)="updateSelectedKey()">Cập nhật</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Xác nhận</h4>
+          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Bạn có chắc chắn xóa từ khoá này không?</p>
+          <div class="icon-trash">
+            <i class="fas fa-trash-alt fa-3x text-danger"></i>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="d('Cross click')">Đóng</button>
+          <button type="button" class="btn btn-outline-danger" (click)="c('yes')">Đồng ý</button>
+        </div>
+      </ng-template>
+    </div>
+  </main>
+</div>

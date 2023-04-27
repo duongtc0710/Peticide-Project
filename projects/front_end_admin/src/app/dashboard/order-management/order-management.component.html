@@ -1,0 +1,375 @@
+<div class="row">
+    <!-- Main Sidebar -->
+    <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
+        <div class="main-navbar">
+            <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
+                <a class="navbar-brand w-100 mr-0" [routerLink]="['/dashboard']" style="line-height: 25px;">
+                    <div class="d-table m-auto">
+                        <span class="d-none d-md-inline ml-1 h3 text-uppercase" style="font-size: 150%;">Bảng điều khiển</span>
+                    </div>
+                </a>
+                <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
+                    <i class="material-icons">&#xE5C4;</i>
+                </a>
+            </nav>
+        </div>
+        <form action="#" class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
+            <div class="input-group input-group-seamless ml-3">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                <input class="navbar-search form-control" type="text" placeholder="Tìm kiếm..." aria-label="Search">
+            </div>
+        </form>
+
+        <ng-container *ngIf="this.getUserDataS['id_role'] == 2">
+            <div class="nav-wrapper">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/disease']">
+                            <i class="material-icons">coronavirus</i>
+                            <span title="Trang tổng quan">Quản lí bệnh</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/chat']">
+                            <i class="material-icons">question_answer</i>
+                            <span title="Thoát">Chat</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/ai-intents']">
+                            <i class="material-icons">vpn_key</i>
+                            <span title="Thoát">Từ khoá</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/login']">
+                            <i class="material-icons">logout</i>
+                            <span title="Thoát">Thoát</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="this.getUserDataS['id_role'] == 1">
+            <div class="nav-wrapper">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/dashboard']">
+                            <i class="material-icons">edit</i>
+                            <span title="Trang tổng quan">Trang Tổng quan</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/account-management']">
+                            <i class="material-icons">manage_accounts</i>
+                            <span title="Quản lí tài khoản">Quản lí tài khoản</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/agency-management']">
+                            <i class="material-icons">apartment</i>
+                            <span title="Quản lí tài khoản">Quản lí đại lý</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/product-management']">
+                            <i class="material-icons">view_in_ar</i>
+                            <span title="Quản lí sản phẩm">Quản lí sản phẩm</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/voucher-management']">
+                            <i class="material-icons">confirmation_number</i>
+                            <span title="Quản lí danh mục">Quản lí mã giảm giá</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" [routerLink]="['/order-management']">
+                            <i class="material-icons">reorder</i>
+                            <span title="Quản lí danh mục">Quản lí đơn hàng</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/disease']">
+                            <i class="material-icons">coronavirus</i>
+                            <span title="Trang tổng quan">Quản lí bệnh</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/ai-intents']">
+                            <i class="material-icons">vpn_key</i>
+                            <span title="Thoát">Từ khoá</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/login']">
+                            <i class="material-icons">logout</i>
+                            <span title="Thoát">Thoát</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="this.getUserDataS['id_role'] == 3">
+            <div class="nav-wrapper">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/dashboard']">
+                            <i class="material-icons">edit</i>
+                            <span title="Trang tổng quan">Trang Tổng quan</span>
+                        </a>
+                    </li>
+                    <!-- <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/account-management']">
+                  <i class="material-icons">manage_accounts</i>
+                  <span title="Quản lí tài khoản">Quản lí tài khoản</span>
+                  </a>
+              </li> -->
+                    <!-- <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/agency-management']">
+                  <i class="material-icons">apartment</i>
+                  <span title="Quản lí tài khoản">Quản lí đại lý</span>
+                  </a>
+              </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/product-management']">
+                            <i class="material-icons">view_in_ar</i>
+                            <span title="Quản lí sản phẩm">Quản lí sản phẩm</span>
+                        </a>
+                    </li>
+                    <!-- <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/voucher-management']">
+                  <i class="material-icons">confirmation_number</i>
+                  <span title="Quản lí danh mục">Quản lí mã giảm giá</span>
+                  </a>
+              </li> -->
+                    <li class="nav-item active">
+                        <a class="nav-link" [routerLink]="['/order-management']">
+                            <i class="material-icons">reorder</i>
+                            <span title="Quản lí danh mục">Quản lí đơn hàng</span>
+                        </a>
+                    </li>
+                    <!-- <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/disease']">
+                  <i class="material-icons">coronavirus</i>
+                  <span title="Trang tổng quan">Quản lí bệnh</span>
+                  </a>
+              </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/login']">
+                            <i class="material-icons">logout</i>
+                            <span title="Thoát">Thoát</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </ng-container>
+
+    </aside>
+    <!-- End Main Sidebar -->
+    <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+        <div class="main-navbar sticky-top bg-white">
+            <app-navbar></app-navbar>
+        </div>
+        <!-- / .main-navbar -->
+
+        <div class="main-content-container container-fluid px-4">
+            <!-- Page Header -->
+            <div class="page-header row no-gutters py-4">
+                <div class="col-12 col-sm-4 text-left text-sm-left mb-0">
+                    <span class="text-uppercase page-subtitle">Tổng quát</span>
+                    <h3 class="page-title">Đơn hàng</h3>
+                </div>
+            </div>
+            <!-- End Page Header -->
+
+            <!-- Default Light Table -->
+            <div class="row">
+                <div class="col">
+                    <div class="card card-small mb-4">
+                        <div class="card-header border-bottom">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <input class="btn1 form-control" type="text" [formControl]="searchInputControl" [autocomplete]="'off'" [placeholder]="'Tìm kiếm ID đơn hàng'">
+                                </div>
+                                <div class="col-md-5 row" [formGroup]="filterByDateForm">
+                                    <div class="col-md-6">
+                                        <input type="date" name="bday" min="2022-04-01" max="2022-12-31" class="form-control" [formControlName]="'start_date'">
+                                    </div>
+                                    <div class="col-md-6" (change)="filterByDate($event)">
+                                        <input type="date" name="bday" min="2022-04-01" max="2022-12-31" class="form-control" [formControlName]="'end_date'">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body p-0 pb-3 text-center">
+                            <table class="table table-bordered mb-0">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">ID đơn hàng</th>
+                                        <th scope="col">Hình thức thanh toán</th>
+                                        <th scope="col">Địa chỉ</th>
+                                        <th scope="col">Tổng tiền</th>
+                                        <th scope="col">Thời gian</th>
+                                        <th scope="col">Trạng thái đặt hàng</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let ord of allOrder$ | paginate: {itemsPerPage: pagination.size, currentPage: pagination.page, totalItems: pagination.length}">
+                                        <td>{{ord.id_order}}</td>
+                                        <td *ngIf="ord.id_paymentmethod === 1">VN Pay</td>
+                                        <td *ngIf="ord.id_paymentmethod === 2">Tiền mặt</td>
+                                        <td>{{ord.address}}</td>
+                                        <td>{{ord.total_payment | number}} VNĐ</td>
+                                        <td>{{ord.date | date:'medium'}}</td>
+                                        <td class="text-success" *ngIf="ord.status === 1">Đặt hàng thành công</td>
+                                        <td class="text-danger" *ngIf="ord.status === 2">Đặt hàng thất bại</td>
+                                        <td class="text-warning" *ngIf="ord.status === 3">Chờ xử lí</td>
+                                        <td>
+                                            <button class="btn-delete btn-update" data-toggle="modal" data-target="#updateStatusModal" title="Cập nhật" (click)="onUpdate(ord)">
+                                              <i class="fas fa-edit text-white"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="row justify-content-center">
+                                <pagination-controls class="my-pagination" previousLabel="Trước" nextLabel="Tiếp" (pageChange)="changePage(pagination.page = $event)"></pagination-controls>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Default Light Table -->
+        </div>
+        <div class="modal fade bd-example-modal-lg" id="updateStatusModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-add" id="exampleModalCenterTitle">Cập nhật đơn hàng</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Default Light Table -->
+                        <div class="row">
+                            <!-- Nhập sản phẩm -->
+                            <div class="col-lg-12">
+                                <div class="card card-small mb-4">
+                                    <div class="card-header border-bottom">
+                                        <h6 class="m-0">Chi tiết đơn hàng</h6>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item p-3">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <!-- Form  -->
+                                                    <form [formGroup]="selectedOrderForm" novalidate>
+                                                        <!-- Name product -->
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="pro_name">Hình thức thanh toán</label>
+                                                                <input type="text" class="form-control" [formControlName]="'id_paymentmethod'" required id="pro_name" readonly>
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="pro_name">Địa chỉ</label>
+                                                                <input type="text" class="form-control" [formControlName]="'address'" required id="pro_name" readonly>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="pro_name">Tổng tiền</label>
+                                                                <input type="text" class="form-control" [formControlName]="'total_payment'" required id="pro_name" readonly>
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="pro_name">Thời gian</label>
+                                                                <input type="text" class="form-control" [formControlName]="'date'" required id="pro_name" readonly>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row" hidden>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="pro_name">ID Customer</label>
+                                                                <input type="text" class="form-control" [formControlName]="'id_customer'" required id="pro_name" readonly>
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="pro_name">ID Order</label>
+                                                                <input type="text" class="form-control" [formControlName]="'id_order'" required id="pro_name" readonly>
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="pro_name">ID Agency</label>
+                                                                <input type="text" class="form-control" [formControlName]="'id_agency'" required id="pro_name" readonly>
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="pro_name">ID Voucher</label>
+                                                                <input type="text" class="form-control" [formControlName]="'id_voucher'" required id="pro_name" readonly>
+                                                            </div>
+                                                        </div>
+
+                                                    </form>
+
+                                                    <ng-container [formGroup]="InforOrderForm">
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="pro_name">Tên khách hàng</label>
+                                                                <input type="text" class="form-control" required id="pro_name" [formControlName]="'fullname'" readonly>
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="pro_name">Email</label>
+                                                                <input type="text" class="form-control" required id="pro_name" [formControlName]="'email'" readonly>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="pro_name">Điện thoại</label>
+                                                                <input type="text" class="form-control" required id="pro_name" [formControlName]="'phone'" readonly>
+                                                            </div>
+                                                        </div>
+                                                    </ng-container>
+
+                                                    <ng-container *ngIf="this.idStatus == 3 && this.getUserDataS['id_role'] == 3">
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="status">Trạng thái đặt hàng</label>
+                                                                <div class="wrapper" [formGroup]="selectedOrderForm">
+                                                                    <input type="radio" value="1" name="status" formControlName="status" id="true">
+                                                                    <input type="radio" value="2" name="status" formControlName="status" id="false">
+
+                                                                    <label for="true" class="option true ml-0 mr-2">
+                                    <div class="dot"></div>
+                                    <span>Thành công</span>
+                                  </label>
+                                                                    <label for="false" class="option false ml-0 mr-0">
+                                    <div class="dot"></div>
+                                    <span>Thất bại</span>
+                                  </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </ng-container>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Default Light Table -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeButton">Đóng</button>
+                        <button type="button" class="btn btn-save" (click)="onSubmit()" *ngIf="this.getUserDataS['id_role'] == 3 && this.idStatus == 3">Cập nhật</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

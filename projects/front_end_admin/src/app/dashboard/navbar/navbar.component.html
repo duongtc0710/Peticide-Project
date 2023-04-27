@@ -1,0 +1,36 @@
+<!-- Main Navbar -->
+<nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
+  <form action="#" class="main-navbar__search w-100 d-none d-md-flex d-lg-flex">
+    <div class="input-group input-group-seamless ml-3">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+        </div>
+      </div>
+    </div>
+  </form>
+  <ul class="navbar-nav border-left flex-row" >
+    <li class="nav-item dropdown"  data-toggle="dropdown" role="button" >
+      <a class="nav-link dropdown-toggle text-nowrap px-3" aria-haspopup="true"
+        aria-expanded="false" title="Hồ sơ">
+        <img class="user-avatar rounded-circle mr-2" [src]="createImgPath(getUserData.image)">
+        <span class="d-none d-md-inline-block">{{getUserData.username}}</span>
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" [routerLink]="['/profile-manage']">
+          <i class="material-icons">&#xE7FD;</i> Hồ sơ
+        </a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item text-success" (click)="logout()">
+          <i class="material-icons text-success">&#xE879;</i> Đăng xuất
+        </a>
+      </div>
+    </li>
+  </ul>
+  <nav class="nav">
+    <a href="#" class="nav-link nav-link-icon toggle-sidebar d-md-inline d-lg-none text-center border-left"
+      data-toggle="collapse" data-target=".header-navbar" aria-expanded="false" aria-controls="header-navbar">
+      <i class="material-icons">&#xE5D2;</i>
+    </a>
+  </nav>
+</nav>
+<!-- / .main-navbar -->

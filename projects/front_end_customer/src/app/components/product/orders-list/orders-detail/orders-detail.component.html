@@ -1,0 +1,121 @@
+<div class="col-md-9 mx-auto pt-2 pb-2">
+    <!-- body -->
+    <section class="bg-white osahan-main-body rounded shadow-sm overflow-hidden">
+        <div class="container-0">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="osahan-status">
+                        <!-- status complete -->
+                        <div class="p-3 status-order bg-white border-bottom d-flex align-items-center">
+                            <p class="m-0"><i class="icofont-ui-calendar"></i> {{orders.date | date: 'medium'}} </p>
+                        </div>
+                        <div class="p-3 border-bottom">
+                            <h6 class="font-weight-bold">Trạng Thái Hoá Đơn</h6>
+                            <ng-container *ngIf="orders.status === 1;else failedOrder">
+                                <div class="tracking-wrap">
+                                    <div class="my-1 step active">
+                                        <span class="icon text-success"><i class="icofont-check"></i></span>
+                                        <span class="text small"> Chuẩn bị đơn hàng</span>
+                                    </div>
+                                    <!-- step.// -->
+                                    <div class="my-1 step active">
+                                        <span class="icon text-success"><i class="icofont-check"></i></span>
+                                        <span class="text small"> Đã đóng gói</span>
+                                    </div>
+                                    <!-- step.// -->
+                                    <div class="my-1 step">
+                                        <span class="icon text-success"><i class="icofont-check"></i></span>
+                                        <span class="text small"> Đang trên đường</span>
+                                    </div>
+                                    <!-- step.// -->
+                                    <div class="my-1 step">
+                                        <span class="icon text-success"><i class="icofont-check"></i></span>
+                                        <span class="text small"> Đã giao thành công</span>
+                                    </div>
+                                    <!-- step.// -->
+                                </div>
+                            </ng-container>
+                            <ng-template #failedOrder>
+                                <div class="tracking-wrap">
+                                    <div class="my-1 step active">
+                                        <span class="icon text-success"><i class="icofont-check"></i></span>
+                                        <span class="text small"> Chuẩn bị đơn hàng</span>
+                                    </div>
+                                    <!-- step.// -->
+                                    <div class="my-1 step active">
+                                        <span class="icon text-success"><i class="icofont-check"></i></span>
+                                        <span class="text small"> Đã đóng gói</span>
+                                    </div>
+                                    <!-- step.// -->
+                                    <div class="my-1 step">
+                                        <span class="icon text-danger"><i class="icofont-close"></i></span>
+                                        <span class="text small"> Giao hàng thất bại</span>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </div>
+                        <!-- Destination -->
+                        <div class="p-3 border-bottom bg-white">
+                            <h6 class="font-weight-bold">Địa Chỉ</h6>
+                            <p class="m-0 small"> {{ orders.address }} </p>
+                        </div>
+                        <div class="p-3 border-bottom">
+                            <h6 class="font-weight-bold">Danh sách sản phẩm</h6>
+                            <div class="d-flex">
+                                <ng-container>
+                                    <th class="text-muted m-0">Sản phẩm<br>
+                                        <span class="text-dark font-weight-bold" *ngFor="let pro of products_item; let i = index">
+                                {{ i + 1 }} <br> 
+                            </span>
+                                    </th>
+                                    <th class="text-muted m-0 ml-auto">Tên sản phẩm<br>
+                                        <span class="text-dark font-weight-bold" *ngFor="let pro of products_item"> {{ pro.name_product }}
+                            <br></span>
+                                    </th>
+                                    <th class="text-muted m-0 ml-auto">Số lượng<br>
+                                        <span class="text-dark font-weight-bold ml-4" *ngFor="let items of ordersItem"> {{ items.quantity }}
+                                <br>
+                            </span>
+                                    </th>
+                                    <th class="text-muted m-0 ml-auto">Giá<br>
+                                        <span class="text-dark font-weight-bold" *ngFor="let items of ordersItem"> {{ items.total | number}}
+                                VNĐ
+                                <br>
+                            </span>
+                                    </th>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <!-- total price -->
+                        <div class="p-3 bg-white">
+                            <div class="row">
+                                <div class="col col-md-10">
+                                    <h6 class="font-weight-bold">Tổng tiền</h6>
+                                    <h6 class="font-weight-bold ml-auto"> {{orders.total_payment | number}} VNĐ </h6>
+                                </div>
+                                <div class="col col-md-2">
+                                    <button *ngIf="orders.status === 3" class="btn btn-success btn-lg btn-block mt-3 mb-3" (click)="openDialogDelete(content, orders.id_order)">Hủy đơn hàng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Xác nhận</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">    
+          <span aria-hidden="true">×</span>    
+      </button>
+    </div>
+    <div class="modal-body text-center">
+        <p>Bạn có chắc chắn hủy đơn hàng này không?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="d('Cross click')">Đóng</button>
+        <button type="button" class="btn btn-outline-danger" (click)="c('yes')">Đồng ý</button>
+    </div>
+</ng-template>

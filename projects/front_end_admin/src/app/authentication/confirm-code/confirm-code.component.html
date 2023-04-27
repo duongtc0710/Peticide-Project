@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card border-0 shadow-sm rounded my-5">
+        <div class="card-body p-4 p-sm-5">
+          <h4 class="card-title text-center mb-5 login-title font-weight-bold">QUÊN MẬT KHẨU
+            <h1 class="text-ptech font-weight-bold">PTECH</h1>
+          </h4>
+          <form [formGroup]="confirmCodeForm">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Mã xác nhận</label>
+              <input placeholder="Vui lòng nhập mã code" type="text" [formControlName]="'code'" class="form-control"
+                id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <button type="submit" class="btn btn-success btn-lg rounded btn-block" (click)="confirmCode()">Xác
+              nhận</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

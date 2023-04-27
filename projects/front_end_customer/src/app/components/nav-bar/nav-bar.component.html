@@ -1,0 +1,66 @@
+<!-- Nav bar -->
+<div class="bg-light shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <a class="navbar-brand mr-auto" [routerLink]="['/home']">
+                <img class="img-fluid logo-img rounded-pill border shadow-sm" src="./assets/img/logo.svg">
+            </a>
+            <ul class="navbar-nav flex-row mr-lg-0">
+                <li class="nav-item">
+                    <div class="ml-auto d-flex align-items-center">
+                        <!-- login/signup -->
+                        <a [routerLink]="['/sign-in']" data-toggle="modal" class="mr-2 text-dark" *ngIf="!userDetails()">
+                            Đăng nhập
+                        </a>
+                        <a class="mr-2" *ngIf="!userDetails()">|</a>
+                        <a [routerLink]="['/sign-up']" data-toggle="modal" class="mr-2 text-dark" *ngIf="!userDetails()">
+                            Đăng Ký
+                        </a>
+                        <a [routerLink]="['/cart']" class="mr-3 text-dark bg-light rounded-pill p-2 icofont-size border shadow-sm" *ngIf="userDetails()">
+                            <i class="icofont-shopping-cart"></i>
+                            <span class="badge rounded-pill badge-success position-absolute top-0 ms-1">
+                                {{totalItem}}
+                            </span>
+                        </a>
+                        <a class="nav-item dropdown" *ngIf="userDetails()">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="icofont-ui-user"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" [routerLink]="['/user-profile']">Thông tin cá nhân</a>
+                                <a class="dropdown-item" [routerLink]="['/orders-list']">Lịch sử đơn hàng</a>
+                                <a class="dropdown-item" (click)="logout()">Đăng xuất</a>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <button class="navbar-toggler ml-lg-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+    <!-- *ngIf="isLoggedIn$ | async as isLoggedIn" -->
+    <nav class="navbar navbar-expand-md bg-success navbar-light">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-white pl-0" [routerLink]="['/home']">Trang chủ <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sản phẩm
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" [routerLink]="['/list-product']">Danh sách sản phẩm</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="Tìm kiếm sản phẩm..">
+                </form>
+            </div>
+        </div>
+    </nav>
+</div>

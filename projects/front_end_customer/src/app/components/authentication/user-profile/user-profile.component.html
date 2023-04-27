@@ -1,0 +1,269 @@
+<div class="main-content-container container-fluid px-4">
+    <div class="row gutters-sm">
+        <div class="col-md-7 mt-4" style="margin: auto; padding: 10px;">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <!-- name -->
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Họ & Tên</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{getSubData.fullname}}
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- email -->
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Email</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{getAccData.email}}
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- phone -->
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Điện Thoại</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{getAccData.phone}}
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- gender -->
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Giới Tính</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <ng-container *ngIf="getSubData.gender == 1">Nam</ng-container>
+                            <ng-container *ngIf="getSubData.gender == 2">Nữ</ng-container>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- date -->
+                    <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Ngày Sinh</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                          {{getSubData.birthday}}
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- address -->
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Địa Chỉ</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{getAccData.address}}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row col-md-5">
+                        <div class="col-md-4">
+                            <a class="btn btn-success text-white" data-toggle="modal" data-target="#updateProductModal" (click)="onUpdate(getAccData, getSubData)">Cập nhật</a>
+                        </div>
+                        <div class="col-md-8">
+                            <a class="btn btn-success text-white" data-toggle="modal" data-target="#changePasswordModal">Đổi mật khẩu</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-sm" id="updateProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-add" id="exampleModalCenterTitle">Cập nhật thông tin</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- avartar -->
+                            <div class="row mb-3">
+                                <div class="col-sm-3" style="margin: auto; padding: 10px;">
+                                    <img class="imagePreview" [src]="createImgPath(urlAvatar)"/>
+                                    <label class="btn btn-success">
+                                        Tải ảnh
+                                        <input type="file" class="uploadFile img" (change)="uploadFile(imageInput)" #imageInput accept="image/*" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- name -->
+                            <div class="row mb-3">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Họ và tên</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary" [formGroup]="sub_accountForm">
+                                    <input type="text" class="form-control" formControlName="fullname">
+                                    <div class="alert alert-danger"
+                                        *ngIf="(sub_accountFormControl.fullname.touched) && sub_accountFormControl.fullname.errors?.required">
+                                        Vui lòng nhập tên
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- email -->
+                            <div class="row mb-3">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Email</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary" [formGroup]="proFileForm">
+                                    <input type="text" class="form-control" formControlName="email" readonly>
+                                </div>
+                            </div>
+                            <!-- phone -->
+                            <div class="row mb-3">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Số điện thoại</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary" [formGroup]="proFileForm">
+                                    <input type="text" class="form-control" formControlName="phone" pattern="^0\d{9}$">
+                                    <div class="alert alert-danger"
+                                        *ngIf="(proFileFormControl.phone.touched) && proFileFormControl.phone.errors?.required">
+                                        Vui lòng nhập số điện thoại
+                                    </div>
+                                    <div class="alert alert-danger"
+                                        *ngIf="(proFileFormControl.phone.touched) && proFileFormControl.phone.errors?.pattern">
+                                       Số điện thoại chưa đúng định dạng
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- gender -->
+                            <div class="row mb-3">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Giới tính</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <form novalidate [formGroup]="sub_accountForm">
+                                        <select class="form-control" formControlName="gender">
+                                            <option selected>Chọn giới tính của bạn</option>
+                                            <option [value]="1">Nam</option>
+                                            <option [value]="2">Nữ</option>
+                                        </select>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- birthday -->
+                            <div class="row mb-3">
+                                <div class="col-sm-3">
+                                  <h6 class="mb-0">Ngày sinh</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary" [formGroup]="sub_accountForm">
+                                  <input type="date" min="1950-01-01" max="2022-12-31" class="form-control"
+                                    formControlName="birthday">
+                                </div>
+                            </div>
+                            <!-- address -->
+                            <div class="row mb-3">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Địa chỉ</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary" [formGroup]="proFileForm">
+                                    <input type="text" class="form-control" formControlName="address" pattern="^[^\\@#%.,&'*^?!\s].+$">
+                                    <div class="alert alert-danger"
+                                        *ngIf="(proFileFormControl.address.touched) && proFileFormControl.address.errors?.required">
+                                        Vui lòng nhập địa chỉ
+                                    </div>
+                                    <div class="alert alert-danger"
+                                        *ngIf="(proFileFormControl.address.touched) && proFileFormControl.address.errors?.pattern">
+                                        Địa chỉ chưa đúng định dạng
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Default Light Table -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" #btnClose>Đóng</button>
+                <button type="button" class="btn btn-success" (click)="onSubmit()">Cập nhật</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-sm" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-add" id="exampleModalCenterTitle">Đổi mật khẩu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Nhập sản phẩm -->
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <form [formGroup]="changePasswordForm">
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Mật khẩu cũ</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="password" class="form-control" [formControlName]="'old_password'">
+                                        <div *ngIf="form.old_password.touched && form.old_password.invalid" class="alert alert-danger">
+                                            <div *ngIf="form.old_password.errors">Vui lòng nhập mật khẩu cũ</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Mật khẩu mới</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="password" class="form-control" [formControlName]="'new_password'">
+                                        <ng-container *ngIf="form.new_password.value.length === 0; else nho8">
+                                            <div *ngIf="form.new_password.touched && form.new_password.invalid" class="alert alert-danger">
+                                                <div *ngIf="form.new_password.errors">Vui lòng nhập mật khẩu mới</div>
+                                            </div>
+                                        </ng-container>
+                                        <ng-template #nho8>
+                                            <div *ngIf="form.new_password.value.length < 8" class="alert alert-danger">
+                                                Vui lòng nhập mật khẩu phải lớn hơn 8 kí tự
+                                            </div>
+                                        </ng-template>
+                                        <ng9-password-strength-bar
+                                            [passwordToCheck]="form.new_password.value"
+                                            [barLabel]="barLabel"
+                                            [customThresholds]="thresholds"
+                                            [barColors]="myColors">
+                                        </ng9-password-strength-bar>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Xác nhận mật khẩu mới</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="password" class="form-control" [formControlName]="'confirm_password'">
+                                        <div *ngIf="form.confirm_password.touched && form.confirm_password.invalid" class="alert alert-danger">
+                                            <div *ngIf="form.confirm_password.errors">Vui lòng xác nhận mật khẩu mới</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Default Light Table -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" #btnClose1>Đóng</button>
+                <button type="button" class="btn btn-success" (click)="changePassword()" [disabled]="!changePasswordForm.valid">Cập nhật</button>
+            </div>
+        </div>
+    </div>
+</div>

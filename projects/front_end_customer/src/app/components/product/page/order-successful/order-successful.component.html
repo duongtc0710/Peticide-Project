@@ -1,0 +1,25 @@
+<!-- bread_cum -->
+<nav aria-label="breadcrumb" class="breadcrumb mb-0">
+    <div class="container">
+        <ol class="d-flex align-items-center mb-0 p-0">
+            <li class="breadcrumb-item"><a href="#" class="text-success">Trang chủ</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Thành công</li>
+        </ol>
+    </div>
+</nav>
+<!-- content -->
+<div class="bg-success">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="p-5 text-center">
+                <i class="icofont-check-circled display-1 text-warning"></i>
+                <h1 class="text-white font-weight-bold">Đơn hàng của bạn đã thành công 🎉</h1>
+                <p class="text-white">Kiểm tra trạng thái đơn đặt hàng của bạn trong <a href="#" class="font-weight-bold text-decoration-none text-white">Đơn hàng của tôi</a> về thông tin các bước tiếp theo.</p>
+            </div>
+            <!-- continue -->
+            <div class="bg-white rounded p-3 m-2 text-center">
+                <a [routerLink]="['/home']" class="btn rounded btn-warning btn-lg btn-block">Bạn có muốn tiếp tục mua hàng</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title text-add" id="exampleModalCenterTitle">Thêm mã giảm giá</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <!-- Default Light Table -->
+      <div class="row">
+        <!-- Nhập sản phẩm -->
+        <div class="col-lg-12">
+          <div class="card card-small mb-4">
+            <div class="card-header border-bottom">
+              <h6 class="m-0">Chi tiết mã</h6>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item p-3">
+                <div class="row">
+                  <div class="col">
+                    <!-- Form  -->
+                    <form [formGroup]="voucherForm" novalidate>
+
+                      <div class="form-row">
+                        <!-- Brand-->
+                        <div class="form-group col-md-6">
+                          <label for="pro_brand">Chiết khấu</label>
+                          <input type="number" min="0" max="100" class="form-control" [formControlName]="'discount'"
+                            required id="pro_brand" placeholder="Chiết khấu của mã">
+                        </div>
+                      </div>
+
+                      <div class="form-row">
+                        <!-- Expirydate -->
+                        <div class="form-group col-md-6">
+                          <label for="pro_expirydate">Ngày hết hạn</label>
+                          <input type="date" [formControlName]="'expirydate'" name="bday" min="1000-01-01"
+                            max="3000-12-31" class="form-control">
+                        </div>
+                        <!-- Description -->
+                        <div class="form-group col-md-6">
+                          <label for="pro_description">Mô tả</label>
+                          <textarea class="form-control" [formControlName]="'description'" required id="pro_description"
+                            rows="3" name="description" placeholder="Mô tả của mã ... "></textarea>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- End Default Light Table -->
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal" #btnClose id="closeButton">Đóng</button>
+      <button type="button" class="btn btn-save" (click)="onSubmit()">Thêm</button>
+    </div>
+  </div>
+</div>

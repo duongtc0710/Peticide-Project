@@ -1,0 +1,86 @@
+.login-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 2rem;
+    color: #1a1a1a!important;
+}
+
+.text-ptech {
+    color: #66DE93;
+}
+
+.btn-agent {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+    border: 2px solid #4CA1A3;
+}
+
+.btn-signIn {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+    border: 2px solid #66DE93;
+}
+
+.stretched-link {
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+.input-group-text {
+    color: #66DE93;
+}
+
+.form-control {
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+}
+
+
+/* Focus */
+
+.form-control:focus {
+    border-color: #66DE93;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: 0;
+}
+
+.form-check-input:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: #66DE93;
+    outline: 0;
+}
+
+.btn-login:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    border: none;
+    box-shadow: none;
+    outline: 0;
+}
+
+
+/* Checked */
+
+.form-check-input:checked {
+    background-color: #66DE93;
+}
+
+
+/* Hover */
+
+.stretched-link:hover {
+    color: #66DE93;
+}
+
+.btn-agent:hover {
+    background-color: #4CA1A3;
+    color: #fff;
+}
+
+.btn-signIn:hover {
+    background-color: #66DE93;
+}
